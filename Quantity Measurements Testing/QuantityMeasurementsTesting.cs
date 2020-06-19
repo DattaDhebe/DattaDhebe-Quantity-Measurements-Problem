@@ -47,7 +47,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.3 : Given first Feet 0 and second Feet 2 when should return Equal
+        /// TC-1.3 : Given first Feet 0 and second Feet 2 should return Not Equal
         /// </summary>
         [Test]
         public void Given0FeetAnd2Feet_ShouldReturnNotEqual()
@@ -55,6 +55,17 @@ namespace Quantity_Measurements_Testing
             Feet feet1 = new Feet(0.0);
             Feet feet2 = new Feet(2.0);
             Assert.AreNotEqual(feet1, feet2);
+        }
+
+        /// <summary>
+        /// TC-1.4 : Given first Feet Object and second Feet Object should return Equal
+        /// </summary>
+        [Test]
+        public void GivenFeetObjectAndFeetObject_ShouldReturnNotEqual()
+        {
+            Feet feet1 = new Feet(0.0);
+            Feet feet2 = new Feet(2.0);
+            Assert.AreEqual(feet1.GetType(), feet2.GetType());
         }
     }
 }
