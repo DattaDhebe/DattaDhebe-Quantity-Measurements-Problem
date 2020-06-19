@@ -61,7 +61,7 @@ namespace Quantity_Measurements_Testing
         /// TC-1.4 : Given first Feet Object and second Feet Object when checked should return Equal
         /// </summary>
         [Test]
-        public void GivenFeetObjectAndFeetObject_WhenChecked_ShouldReturnNotEqual()
+        public void GivenFeetObjectAndFeetObject_WhenChecked_ShouldReturnEqual()
         {
             Feet feet1 = new Feet(0.0);
             Feet feet2 = new Feet(2.0);
@@ -122,6 +122,17 @@ namespace Quantity_Measurements_Testing
             Inch inch1 = new Inch(0.0);
             Inch inch2 = new Inch(2.0);
             Assert.AreNotEqual(inch1, inch2);
+        }
+
+        /// <summary>
+        /// TC-1.10 : Given first Inch Object and second Inch Object when checked should return Equal
+        /// </summary>
+        [Test]
+        public void Given1stInchObjectAnd2ndInchObject_WhenChecked_ShouldReturnEqual()
+        {
+            Inch inch1 = new Inch(0.0);
+            Inch inch2 = new Inch(2.0);
+            Assert.AreEqual(inch1.GetType(), inch2.GetType());
         }
     }
 }
