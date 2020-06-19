@@ -72,7 +72,7 @@ namespace Quantity_Measurements_Testing
         /// TC-1.5 : Given first Feet Object and second Feet Object when checked should return Equal
         /// </summary>
         [Test]
-        public void GivenTwoObjectHaveSameReference_WhenCheckedReference_ShouldReturnNotEqual()
+        public void GivenTwoObjectHaveSameReference_WhenCheckedReference_ShouldReturnTrue()
         {
             Feet feet1 = new Feet(0.0);
             Feet feet2 = feet1;
@@ -125,14 +125,26 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.10 : Given first Inch Object and second Inch Object when checked should return Equal
+        /// TC-1.10 : Given first Inch Tyepe of Object and second Inch Type of Object when checked should return Equal
         /// </summary>
         [Test]
-        public void Given1stInchObjectAnd2ndInchObject_WhenChecked_ShouldReturnEqual()
+        public void Given1stInchObjectAnd2ndInchObjectOfType_WhenChecked_ShouldReturnEqual()
         {
             Inch inch1 = new Inch(0.0);
             Inch inch2 = new Inch(2.0);
             Assert.AreEqual(inch1.GetType(), inch2.GetType());
+        }
+
+        /// <summary>
+        /// TC-1.11 : Given first Inch Object reference to second Inch Object when checked should return Equal
+        /// </summary>
+        [Test]
+        public void GivenInchTwoObjectHaveSameReference_WhenCheckedReference_ShouldReturnReturnTrue()
+        {
+            Inch inch1 = new Inch(0.0);
+            Inch inch2 = inch1;
+            bool check = System.Object.ReferenceEquals(inch1, inch2);
+            Assert.True(check);
         }
     }
 }
