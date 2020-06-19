@@ -1,7 +1,17 @@
-using NUnit.Framework;
+//-----------------------------------------------------------------------
+// <copyright file="CabInvoiceTesting.cs" company="BridgeLabz Solution">
+//  Copyright (c) BridgeLabz Solution. All rights reserved.
+// </copyright>
+// <author>Datta Dhebe</author>
+//-----------------------------------------------------------------------
 
 namespace Quantity_Measurements_Testing
 {
+    using System;
+    using Quantity_Measurements;
+    using NUnit.Framework;
+    
+
     public class Tests
     {
         [SetUp]
@@ -10,9 +20,11 @@ namespace Quantity_Measurements_Testing
         }
 
         [Test]
-        public void Test1()
+        public void Given0FeetAnd0Feet_ShouldReturnEqual()
         {
-            Assert.Pass();
+            Feet feet1 = new Feet(0.0);
+            Feet feet2 = new Feet(0.0);
+            Assert.AreEqual(feet1, feet2);
         }
     }
 }
