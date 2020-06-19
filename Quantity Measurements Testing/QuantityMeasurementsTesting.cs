@@ -79,5 +79,16 @@ namespace Quantity_Measurements_Testing
             bool check = System.Object.ReferenceEquals(feet1, feet2);
             Assert.True(check);
         }
+
+        /// <summary>
+        /// TC-1.6 : Given first Feet and second Feet same value when checked should return Equal
+        /// </summary>
+        [Test]
+        public void Given1stAnd2ndSameValue_WhenChecked_ShouldReturnNotEqual()
+        {
+            Feet feet1 = new Feet(2.0);
+            Feet feet2 = new Feet(2.0);
+            Assert.AreEqual(feet1, feet2);
+        }
     }
 }
