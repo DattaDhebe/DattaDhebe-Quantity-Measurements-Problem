@@ -90,5 +90,16 @@ namespace Quantity_Measurements_Testing
             Feet feet2 = new Feet(2.0);
             Assert.AreEqual(feet1, feet2);
         }
+
+        /// <summary>
+        /// TC-1.7 : Given first Inch 0 and second Inch 0 when checked should return Equal
+        /// </summary>
+        [Test]
+        public void Given0InchAnd0Inch_WhenChecked_ShouldReturnEqual()
+        {
+            Inch inch1 = new Inch(0.0);
+            Inch inch2 = new Inch(0.0);
+            Assert.AreEqual(inch1, inch2);
+        }
     }
 }
