@@ -146,5 +146,16 @@ namespace Quantity_Measurements_Testing
             bool check = System.Object.ReferenceEquals(inch1, inch2);
             Assert.True(check);
         }
+
+        /// <summary>
+        /// TC-1.12 : Given first Inch and second Inch same value when checked should return Equal
+        /// </summary>
+        [Test]
+        public void Given1stAnd2ndInchSameValue_WhenChecked_ShouldReturnNotEqual()
+        {
+            Inch inch1 = new Inch(2.0);
+            Inch inch2 = new Inch(2.0);
+            Assert.AreEqual(inch1, inch2);
+        }
     }
 }
