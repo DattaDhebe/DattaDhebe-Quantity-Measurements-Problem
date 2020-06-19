@@ -112,5 +112,16 @@ namespace Quantity_Measurements_Testing
             Inch inch2 = null;
             Assert.AreNotEqual(inch1, inch2);
         }
+
+        /// <summary>
+        /// TC-1.9 : Given first Inch 0 and second Inch 2 when checked should return Not Equal
+        /// </summary>
+        [Test]
+        public void Given0InchAnd2Inch_WhenChecked_ShouldReturnNotEqual()
+        {
+            Inch inch1 = new Inch(0.0);
+            Inch inch2 = new Inch(2.0);
+            Assert.AreNotEqual(inch1, inch2);
+        }
     }
 }
