@@ -197,11 +197,23 @@ namespace Quantity_Measurements_Testing
         /// TC-1.16 : Given 1 Feet and 12 Inch when checked should return Equal Length.
         /// </summary>
         [Test]
-        public void Given1FeetAnd12Inch_WhenComapred_ShouldReturnEqualLength()
+        public void Given1FeetAnd12Inch_WhenComapared_ShouldReturnEqualLength()
         {
             Length feet1 = new Length(Length.Unit.Feet, 1.0);
             Length inch1 = new Length(Length.Unit.Inch, 12.0);
             bool compareCheck = feet1.Compare(inch1);
+            Assert.True(compareCheck);
+        }
+
+        /// <summary>
+        /// TC-1.17 : Given 1 Feet and 1 Feet when Comapred should return Equal Length.
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd1Feet_WhenComapared_ShouldReturnEqualLength()
+        {
+            Length feet1 = new Length(Length.Unit.Feet, 1.0);
+            Length feet2 = new Length(Length.Unit.Feet, 1.0);
+            bool compareCheck = feet1.Compare(feet2);
             Assert.True(compareCheck);
         }
     }
