@@ -55,6 +55,11 @@ namespace Quantity_Measurements
             Yard,
 
             /// <summary>
+            /// Mesuarement for CentiMeter
+            /// </summary>
+            CentiMeter,
+
+            /// <summary>
             /// enum Indicating conversion from Feet To Inch
             /// </summary>
             FeetToInch,

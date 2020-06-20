@@ -32,6 +32,11 @@ namespace Quantity_Measurements_Testing
         private Length yard = null;
 
         /// <summary>
+        /// declaration for Yard and assigned to null
+        /// </summary>
+        private Length centiMeter = null;
+
+        /// <summary>
         /// Method to Assign of Class Instance
         /// </summary>
         [SetUp]
@@ -40,6 +45,7 @@ namespace Quantity_Measurements_Testing
             this.feet = new Length();
             this.inch = new Length();
             this.yard = new Length();
+            this.centiMeter = new Length();
         }
 
         /// <summary>
@@ -317,6 +323,28 @@ namespace Quantity_Measurements_Testing
             Length inch1 = null;
             double yard1 = this.yard.ConvertLength(Length.Unit.Yard, 1.0);
             Assert.AreNotEqual(inch1, yard1);
+        }
+
+        /// <summary>
+        /// TC-3.1 : Given 0 CentiMeter and 0 CentiMeter when Compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given0CentiMeterAnd0CentiMeter_WhenComparingLength_ShouldReturnEqual()
+        {
+            double centiMeter1 = this.inch.ConvertLength(Length.Unit.CentiMeter, 0.0);
+            double centiMeter2 = this.yard.ConvertLength(Length.Unit.CentiMeter, 0.0);
+            Assert.AreEqual(centiMeter1, centiMeter2);
+        }
+
+        /// <summary>
+        /// TC-3.2 : Given 0 CentiMeter and 1 CentiMeter when Compared should return Not Equal.
+        /// </summary>
+        [Test]
+        public void Given0CentiMeterAnd1CentiMeter_WhenComparingLength_ShouldReturnNotEqual()
+        {
+            double centiMeter1 = this.inch.ConvertLength(Length.Unit.CentiMeter, 0.0);
+            double centiMeter2 = this.yard.ConvertLength(Length.Unit.CentiMeter, 0.0);
+            Assert.AreNotEqual(centiMeter1, centiMeter2);
         }
     }
 }
