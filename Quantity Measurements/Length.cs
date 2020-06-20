@@ -9,6 +9,7 @@ namespace Quantity_Measurements
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Text;
 
     /// <summary>
@@ -16,6 +17,16 @@ namespace Quantity_Measurements
     /// </summary>
     public class Length
     {
+        /// <summary>
+        /// pre-defined value for converting Feet to Inch
+        /// </summary>
+        private const double FeetToInch = 12.0;
+
+        /// <summary>
+        /// pre-defined value for converting Yard to Inch
+        /// </summary>
+        private const double YardToInch = 36.0;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Length" /> class.
         /// </summary>
@@ -66,14 +77,18 @@ namespace Quantity_Measurements
             {
                 if (unit.Equals(Unit.FeetToInch))
                 {
-                    return length * 12.0;
+                    return length * FeetToInch;
                 }
                 else if (unit.Equals(Unit.YardToInch))
                 {
-                    return length * 36.0;
+                    return length * YardToInch;
                 }
 
                 return length;
+            }
+            catch (QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidLength, e.Message);
             }
             catch (Exception e)
             {
