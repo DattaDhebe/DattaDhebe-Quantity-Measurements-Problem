@@ -55,7 +55,7 @@ namespace Quantity_Measurements
             Yard,
 
             /// <summary>
-            /// Mesuarement for CentiMeter
+            /// Measurement for Centimeter
             /// </summary>
             Centimeter,
 

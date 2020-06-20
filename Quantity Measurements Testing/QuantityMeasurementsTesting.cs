@@ -381,5 +381,16 @@ namespace Quantity_Measurements_Testing
             bool check = object.ReferenceEquals(centiMeter1, centiMeter2);
             Assert.True(check);
         }
+
+        /// <summary>
+        /// TC-3.6 : Given 2 Centimeter and 2 Centimeter when Compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given2CentiMeterAnd2CentiMeter_WhenCompared_ShouldReturnNotEqual()
+        {
+            double centimeter1 = this.centimeter.ConvertLength(Length.Unit.Centimeter, 2.0);
+            double centimeter2 = this.centimeter.ConvertLength(Length.Unit.Centimeter, 2.0);
+            Assert.AreEqual(centimeter1, centimeter2);
+        }
     }
 }
