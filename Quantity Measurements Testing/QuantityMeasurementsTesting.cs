@@ -206,7 +206,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.17 : Given 1 Feet and 1 Feet when Comapred should return True.
+        /// TC-1.17 : Given 1 Feet and 1 Feet when Comapared should return True.
         /// </summary>
         [Test]
         public void Given1FeetAnd1Feet_WhenComapared_ShouldReturnEqualLength()
@@ -218,7 +218,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.18 : Given 12 Inch and 1 Feet when Comapared should return True.
+        /// TC-1.18 : Given 12 Inch and 1 Feet when Compared should return True.
         /// </summary>
         [Test]
         public void Given12InchAnd1Feet_WhenComapared_ShouldReturnTrue()
@@ -230,7 +230,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-2.1 : Given 1 Yard and 1 Yard when Comapred should return Equal Length.
+        /// TC-2.1 : Given 1 Yard and 1 Yard when Comapared should return Equal Length.
         /// </summary>
         [Test]
         public void Given1YardAnd1Yard_WhenComparingLength_ShouldReturnEqualLength()
@@ -242,39 +242,39 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-2.2 : Given 3 Feet and 1 Yard when Comapred should return False.
+        /// TC-2.2 : Given 3 Feet and 1 Yard when Comapared should return False.
         /// </summary>
         [Test]
         public void Given3FeetAnd1Yard_WhenComparingLength_ShouldReturnFalse()
         {
-            Length feetValue = new Length(Length.Unit.Feet, 3.0);
-            Length yardValue = new Length(Length.Unit.Yard, 1.0);
-            bool compareCheck = feetValue.Compare(yardValue);
+            Length feet1 = new Length(Length.Unit.Feet, 3.0);
+            Length yard1 = new Length(Length.Unit.Yard, 1.0);
+            bool compareCheck = feet1.Compare(yard1);
             Assert.True(compareCheck);
         }
 
         /// <summary>
-        /// TC-2.3 : Given 1 Feet and 1 Yard when Comapred should return False.
+        /// TC-2.3 : Given 1 Feet and 1 Yard when Comapared should return False.
         /// </summary>
         [Test]
         public void Given1FeetAnd1Yard_WhenComparingLength_ShouldReturnFalse()
         {
-            Length feetValue = new Length(Length.Unit.Feet, 1.0);
-            Length yardValue = new Length(Length.Unit.Yard, 1.0);
-            bool compareCheck = feetValue.Compare(yardValue);
+            Length feet1 = new Length(Length.Unit.Feet, 1.0);
+            Length yard1 = new Length(Length.Unit.Yard, 1.0);
+            bool compareCheck = feet1.Compare(yard1);
             Assert.False(compareCheck);
         }
 
         /// <summary>
-        /// TC-2.4 : Given 1 Inch and 1 Yard when Comapred should return False.
+        /// TC-2.4 : Given 1 Yard and 36 Inch when Compared should return True.
         /// </summary>
         [Test]
-        public void Given1InchAnd1Yard_WhenComparingLength_ShouldReturnFalse()
+        public void Given1InchAnd1Yard_WhenComparingLength_ShouldReturnTrue()
         {
-            Length feetValue = new Length(Length.Unit.Inch, 1.0);
-            Length yardValue = new Length(Length.Unit.Yard, 1.0);
-            bool compareCheck = feetValue.Compare(yardValue);
-            Assert.False(compareCheck);
+            Length yard1 = new Length(Length.Unit.Yard, 1.0);
+            Length inch1 = new Length(Length.Unit.Inch, 36.0);
+            bool compareCheck = yard1.Compare(inch1);
+            Assert.True(compareCheck);
         }
     }
 }
