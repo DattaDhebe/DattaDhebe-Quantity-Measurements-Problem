@@ -34,7 +34,7 @@ namespace Quantity_Measurements_Testing
         /// <summary>
         /// declaration for Yard and assigned to null
         /// </summary>
-        private Length centiMeter = null;
+        private Length centimeter = null;
 
         /// <summary>
         /// Method to Assign of Class Instance
@@ -45,7 +45,7 @@ namespace Quantity_Measurements_Testing
             this.feet = new Length();
             this.inch = new Length();
             this.yard = new Length();
-            this.centiMeter = new Length();
+            this.centimeter = new Length();
         }
 
         /// <summary>
@@ -93,10 +93,10 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.5 : Given first Feet Object and second Feet Object when checked should return Equal.
+        /// TC-1.5 : Given first Feet Object and second Feet Object when checked should return True.
         /// </summary>
         [Test]
-        public void GivenTwoObjectHaveSameReference_WhenCheckedReference_ShouldReturnEqual()
+        public void GivenTwoObjectHaveSameReference_WhenCheckedReference_ShouldReturnTrue()
         {
             Length feet1 = new Length();
             Length feet2 = new Length();
@@ -326,47 +326,60 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-3.1 : Given 0 CentiMeter and 0 CentiMeter when Compared should return Equal.
+        /// TC-3.1 : Given 0 Centimeter and 0 Centimeter when Compared should return Equal.
         /// </summary>
         [Test]
         public void Given0CentiMeterAnd0CentiMeter_WhenComparingLength_ShouldReturnEqual()
         {
-            double centiMeter1 = this.inch.ConvertLength(Length.Unit.CentiMeter, 0.0);
-            double centiMeter2 = this.yard.ConvertLength(Length.Unit.CentiMeter, 0.0);
-            Assert.AreEqual(centiMeter1, centiMeter2);
+            double centimeter1 = this.centimeter.ConvertLength(Length.Unit.Centimeter, 0.0);
+            double centimeter2 = this.centimeter.ConvertLength(Length.Unit.Centimeter, 0.0);
+            Assert.AreEqual(centimeter1, centimeter2);
         }
 
         /// <summary>
-        /// TC-3.2 : Given 0 CentiMeter and 1 CentiMeter when Compared should return Not Equal.
+        /// TC-3.2 : Given 0 Centimeter and 1 Centimeter when Compared should return Not Equal.
         /// </summary>
         [Test]
         public void Given0CentiMeterAnd1CentiMeter_WhenCompared_ShouldReturnNotEqual()
         {
-            double centiMeter1 = this.centiMeter.ConvertLength(Length.Unit.CentiMeter, 0.0);
-            double centiMeter2 = this.centiMeter.ConvertLength(Length.Unit.CentiMeter, 1.0);
-            Assert.AreNotEqual(centiMeter1, centiMeter2);
+            double centimeter1 = this.centimeter.ConvertLength(Length.Unit.Centimeter, 0.0);
+            double centimeter2 = this.centimeter.ConvertLength(Length.Unit.Centimeter, 1.0);
+            Assert.AreNotEqual(centimeter1, centimeter2);
         }
 
         /// <summary>
-        /// TC-3.3 : Given first 0 CentiMeter and second CentiMeter Null when Compared should return Not Equal.
+        /// TC-3.3 : Given first 0 Centimeter and second Centimeter Null when Compared should return Not Equal.
         /// </summary>
         [Test]
         public void Given0CentiMeterAndSecondNull_WhenCompared_ShouldReturnNotEqual()
         {
-            double centiMeter1 = this.centiMeter.ConvertLength(Length.Unit.CentiMeter, 0.0);
-            Length centiMeter2 = null;
-            Assert.AreNotEqual(centiMeter1, centiMeter2);
+            double centimeter1 = this.centimeter.ConvertLength(Length.Unit.Centimeter, 0.0);
+            Length centimeter2 = null;
+            Assert.AreNotEqual(centimeter1, centimeter2);
         }
 
         /// <summary>
-        /// TC-3.4 : Given first 0 CentiMeter Object type and second 2 CentiMeter Object type when checked should return Equal.
+        /// TC-3.4 : Given first 0 Centimeter Object type and second 2 Centimeter Object type when checked should return Equal.
         /// </summary>
         [Test]
         public void Given0CentiMeterObjectAnd2centiMeterObject_WhenCompared_ShouldReturnEqual()
         {
-            double centiMeter1 = this.centiMeter.ConvertLength(Length.Unit.CentiMeter, 0.0);
-            double CentiMeter2 = this.centiMeter.ConvertLength(Length.Unit.CentiMeter, 2.0);
-            Assert.AreEqual(centiMeter1.GetType(), CentiMeter2.GetType());
+            double centimeter1 = this.centimeter.ConvertLength(Length.Unit.Centimeter, 0.0);
+            double centimeter2 = this.centimeter.ConvertLength(Length.Unit.Centimeter, 2.0);
+            Assert.AreEqual(centimeter1.GetType(), centimeter2.GetType());
+        }
+
+        /// <summary>
+        /// TC-3.5 : Given first Feet Object and second Feet Object when checked should return True.
+        /// </summary>
+        [Test]
+        public void GivenTwoObjectHaveSameReference_WhenComparedReference_ShouldReturnTrue()
+        {
+            Length centiMeter1 = new Length();
+            Length centiMeter2 = new Length();
+            centiMeter1 = centiMeter2;
+            bool check = object.ReferenceEquals(centiMeter1, centiMeter2);
+            Assert.True(check);
         }
     }
 }

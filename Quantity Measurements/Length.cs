@@ -57,7 +57,7 @@ namespace Quantity_Measurements
             /// <summary>
             /// Mesuarement for CentiMeter
             /// </summary>
-            CentiMeter,
+            Centimeter,
 
             /// <summary>
             /// enum Indicating conversion from Feet To Inch
