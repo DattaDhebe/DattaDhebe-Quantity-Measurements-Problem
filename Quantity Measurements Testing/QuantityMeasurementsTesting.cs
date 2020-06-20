@@ -218,7 +218,19 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.17 : Given 1 Yard and 1 Yard when Comapred should return Equal Length.
+        /// TC-1.18 : Given 12 Inch and 1 Feet when Comapared should return True.
+        /// </summary>
+        [Test]
+        public void Given12InchAnd1Feet_WhenComapared_ShouldReturnTrue()
+        {
+            Length inch1 = new Length(Length.Unit.Inch, 12.0);
+            Length feet1 = new Length(Length.Unit.Feet, 1.0);
+            bool compareCheck = inch1.Compare(feet1);
+            Assert.True(compareCheck);
+        }
+
+        /// <summary>
+        /// TC-1.19 : Given 1 Yard and 1 Yard when Comapred should return Equal Length.
         /// </summary>
         [Test]
         public void Given1YardAnd1Yard_WhenComparingLength_ShouldReturnEqualLength()
