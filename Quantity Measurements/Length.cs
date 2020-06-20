@@ -27,6 +27,11 @@ namespace Quantity_Measurements
         private const double InchToFeet = 12.0;
 
         /// <summary>
+        /// variable indicating conversion Feet to Yard
+        /// </summary>
+        private const double FeetToYard = 3.0;
+
+        /// <summary>
         /// Variable to specify Unit
         /// </summary>
         private Unit unit;
@@ -88,6 +93,11 @@ namespace Quantity_Measurements
             if (this.unit.Equals(Unit.Inch) && that.unit.Equals(Unit.Feet))
             {
                 return that.value.CompareTo(this.value / InchToFeet) == 0;
+            }
+
+            if (this.unit.Equals(Unit.Feet) && that.unit.Equals(Unit.Yard))
+            {
+                return that.value.CompareTo(this.value / FeetToYard) == 0;
             }
 
             return false;

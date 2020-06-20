@@ -230,7 +230,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.19 : Given 1 Yard and 1 Yard when Comapred should return Equal Length.
+        /// TC-2.1 : Given 1 Yard and 1 Yard when Comapred should return Equal Length.
         /// </summary>
         [Test]
         public void Given1YardAnd1Yard_WhenComparingLength_ShouldReturnEqualLength()
@@ -239,6 +239,18 @@ namespace Quantity_Measurements_Testing
             Length yard2 = new Length(Length.Unit.Yard, 1.0);
             bool compareCheck = yard1.Compare(yard2);
             Assert.True(compareCheck);
+        }
+
+        /// <summary>
+        /// TC-2.2 : Given 3 Feet and 1 Yard when Comapred should return Equal Length.
+        /// </summary>
+        [Test]
+        public void Given3FeetAnd1Yard_WhenComparingLength_ShouldReturnEqualLength()
+        {
+            Length feetValue = new Length(Length.Unit.Feet, 3.0);
+            Length yardValue = new Length(Length.Unit.Yard, 1.0);
+            bool compareCheck = feetValue.Compare(yardValue);
+            Assert.IsTrue(compareCheck);
         }
     }
 }
