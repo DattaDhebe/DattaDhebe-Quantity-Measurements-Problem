@@ -169,6 +169,30 @@ namespace Quantity_Measurements_Testing
             Assert.AreNotEqual(feet1, inch2);
         }
 
+        /// <summary>
+        /// TC-1.14 : Given 0 Feet and 0 Inch when checked should return Equal Length.
+        /// </summary>
+        [Test]
+        public void Given0FeetAnd0Inch_WhenChecked_ShouldReturnEqualLength()
+        {
+            Length feet1 = new Length(Length.Unit.Feet, 0.0);
+            Length inch1 = new Length(Length.Unit.Inch, 0.0);
+            bool compareCheck = feet1.compare(inch1);
+            Assert.True(compareCheck);
+        }
+
+        /// <summary>
+        /// TC-1.15 : Given 0 Feet and 1 Inch when checked should return Not Equal Length.
+        /// </summary>
+        [Test]
+        public void Given0FeetAnd1Inch_WhenChecked_ShouldReturnNotEqualLength()
+        {
+            Length feet1 = new Length(Length.Unit.Feet, 0.0);
+            Length inch1 = new Length(Length.Unit.Inch, 0.0);
+            bool compareCheck = feet1.compare(inch1);
+            Assert.False(compareCheck);
+        }
+
 
     }
 }

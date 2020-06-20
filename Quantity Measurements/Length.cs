@@ -53,10 +53,14 @@ namespace Quantity_Measurements
             Inch
         }
 
+        public bool compare(Length that)
+        {
+
+        }
         /// <summary>
         /// Method to Compare two objects
         /// </summary>
-        /// <param name="obj">object for compare</param>
+        /// <param name="obj">object for Equality Check</param>
         /// <returns>return if equal or not</returns>
         public override bool Equals(object obj)
         {
@@ -73,5 +77,7 @@ namespace Quantity_Measurements
         {
             return HashCode.Combine(this.value);
         }
+
+        
     }
 }
