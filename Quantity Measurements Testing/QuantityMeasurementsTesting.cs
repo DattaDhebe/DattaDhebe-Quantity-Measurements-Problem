@@ -397,11 +397,22 @@ namespace Quantity_Measurements_Testing
         /// TC-3.7 : Given 2 Inch and 5 Centimeter when Compared should return Equal.
         /// </summary>
         [Test]
-        public void Given2InchAnd5CentiMeter_WhenCompared_ShouldReturnNotEqual()
+        public void Given2InchAnd5CentiMeter_WhenCompared_ShouldReturnEqual()
         {
             double inch = this.inch.ConvertLength(Length.Unit.Inch, 2.0);
             double centimeter = this.centimeter.ConvertLength(Length.Unit.CentimeterToInch, 5.0);
             Assert.AreEqual(inch, centimeter);
+        }
+
+        /// <summary>
+        /// TC-3.8 : Given 1 Inch and 1 Centimeter when Compared should return Not Equal.
+        /// </summary>
+        [Test]
+        public void Given1InchAnd1CentiMeter_WhenCompared_ShouldReturnNotEqual()
+        {
+            double inch = this.inch.ConvertLength(Length.Unit.Inch, 1.0);
+            double centimeter = this.centimeter.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
+            Assert.AreNotEqual(inch, centimeter);
         }
     }
 }
