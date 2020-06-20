@@ -19,7 +19,7 @@ namespace Quantity_Measurements
         /// <summary>
         /// variable indicating conversion Feet to Inch
         /// </summary>
-        public const double FeetToInch = 12.0;
+        private const double FeetToInch = 12.0;
 
         /// <summary>
         /// Variable to specify Unit
@@ -74,6 +74,8 @@ namespace Quantity_Measurements
             {
                 return that.value.CompareTo(this.value * FeetToInch) == 0;
             }
+
+
 
             return false;
         }
