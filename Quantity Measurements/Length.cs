@@ -28,6 +28,11 @@ namespace Quantity_Measurements
         private const double YardToInch = 36.0;
 
         /// <summary>
+        /// pre-defined value for converting Centimeter to Inch
+        /// </summary>
+        private const double CentimeterToInch = 2.5;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Length" /> class.
         /// </summary>
         public Length() 
@@ -67,7 +72,12 @@ namespace Quantity_Measurements
             /// <summary>
             /// enum Indicating conversion from Yard To Inch
             /// </summary>
-            YardToInch
+            YardToInch,
+
+            /// <summary>
+            /// enum Indicating conversion from Centimeter To Inch
+            /// </summary>
+            CentimeterToInch
         }
 
         /// <summary>
@@ -84,9 +94,15 @@ namespace Quantity_Measurements
                 {
                     return length * FeetToInch;
                 }
-                else if (unit.Equals(Unit.YardToInch))
+                
+                if (unit.Equals(Unit.YardToInch))
                 {
                     return length * YardToInch;
+                }
+
+                if (unit.Equals(Unit.CentimeterToInch))
+                {
+                    return length / CentimeterToInch;
                 }
 
                 return length;

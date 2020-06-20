@@ -188,9 +188,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd1Inch_WhenChecked_ShouldReturnNotEqual()
         {
-            double feet1 = this.feet.ConvertLength(Length.Unit.FeetToInch, 1.0);
-            double inch1 = this.inch.ConvertLength(Length.Unit.Inch, 1.0);            
-            Assert.AreNotEqual(feet1, inch1);
+            double feet = this.feet.ConvertLength(Length.Unit.FeetToInch, 1.0);
+            double inch = this.inch.ConvertLength(Length.Unit.Inch, 1.0);            
+            Assert.AreNotEqual(feet, inch);
         }
 
         /// <summary>
@@ -199,9 +199,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0FeetAnd0Inch_WhenCompared_ShouldReturnEqual()
         {
-            double feet1 = this.feet.ConvertLength(Length.Unit.Feet, 0.0);
-            double inch1 = this.inch.ConvertLength(Length.Unit.Inch, 0.0);
-            Assert.AreEqual(feet1, inch1);
+            double feet = this.feet.ConvertLength(Length.Unit.Feet, 0.0);
+            double inch = this.inch.ConvertLength(Length.Unit.Inch, 0.0);
+            Assert.AreEqual(feet, inch);
         }
 
         /// <summary>
@@ -210,9 +210,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0FeetAnd1Inch_WhenCompared_ShouldReturnNotEqual()
         {
-            double feet1 = this.feet.ConvertLength(Length.Unit.Feet, 0.0);
-            double inch1 = this.inch.ConvertLength(Length.Unit.Inch, 1.0);
-            Assert.AreNotEqual(feet1, inch1);
+            double feet = this.feet.ConvertLength(Length.Unit.Feet, 0.0);
+            double inch = this.inch.ConvertLength(Length.Unit.Inch, 1.0);
+            Assert.AreNotEqual(feet, inch);
         }
 
         /// <summary>
@@ -221,9 +221,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd12Inch_WhenComapared_ShouldReturnEqual()
         {
-            double feet1 = this.feet.ConvertLength(Length.Unit.FeetToInch, 1.0);
-            double inch1 = this.inch.ConvertLength(Length.Unit.Inch, 12.0);
-            Assert.AreEqual(feet1, inch1);
+            double feet = this.feet.ConvertLength(Length.Unit.FeetToInch, 1.0);
+            double inch = this.inch.ConvertLength(Length.Unit.Inch, 12.0);
+            Assert.AreEqual(feet, inch);
         }
 
         /// <summary>
@@ -243,9 +243,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given12InchAnd1Feet_WhenComapared_ShouldReturnEqual()
         {
-            double inch1 = this.inch.ConvertLength(Length.Unit.Inch, 12.0);
-            double feet1 = this.inch.ConvertLength(Length.Unit.FeetToInch, 1.0);
-            Assert.AreEqual(inch1, feet1);
+            double inch = this.inch.ConvertLength(Length.Unit.Inch, 12.0);
+            double feet = this.inch.ConvertLength(Length.Unit.FeetToInch, 1.0);
+            Assert.AreEqual(inch, feet);
         }
 
         /// <summary>
@@ -265,9 +265,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given3FeetAnd1Yard_WhenComparingLength_ShouldReturnEqual()
         {
-            double feet1 = this.inch.ConvertLength(Length.Unit.FeetToInch, 3.0);
-            double yard1 = this.inch.ConvertLength(Length.Unit.YardToInch, 1.0);
-            Assert.AreEqual(feet1, yard1);
+            double feet = this.inch.ConvertLength(Length.Unit.FeetToInch, 3.0);
+            double yard = this.inch.ConvertLength(Length.Unit.YardToInch, 1.0);
+            Assert.AreEqual(feet, yard);
         }
 
         /// <summary>
@@ -276,9 +276,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd1Yard_WhenComparingLength_ShouldReturnNotEqual()
         {
-            double feet1 = this.feet.ConvertLength(Length.Unit.FeetToInch, 1.0);
-            double yard1 = this.yard.ConvertLength(Length.Unit.YardToInch, 1.0);
-            Assert.AreNotEqual(feet1, yard1);
+            double feet = this.feet.ConvertLength(Length.Unit.FeetToInch, 1.0);
+            double yard = this.yard.ConvertLength(Length.Unit.YardToInch, 1.0);
+            Assert.AreNotEqual(feet, yard);
         }
 
         /// <summary>
@@ -287,9 +287,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1InchAnd1Yard_WhenComparingLength_ShouldReturnEqual()
         {
-            double yard1 = this.yard.ConvertLength(Length.Unit.YardToInch, 1.0);
-            double inch1 = this.inch.ConvertLength(Length.Unit.Inch, 36.0);
-            Assert.AreEqual(yard1, inch1);
+            double yard = this.yard.ConvertLength(Length.Unit.YardToInch, 1.0);
+            double inch = this.inch.ConvertLength(Length.Unit.Inch, 36.0);
+            Assert.AreEqual(yard, inch);
         }
 
         /// <summary>
@@ -298,9 +298,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1YardAnd3Feet_WhenComparingLength_ShouldReturnEqual()
         {
-            double yard1 = this.yard.ConvertLength(Length.Unit.YardToInch, 1.0);
-            double feet1 = this.feet.ConvertLength(Length.Unit.FeetToInch, 3.0);
-            Assert.AreEqual(yard1, feet1);
+            double yard = this.yard.ConvertLength(Length.Unit.YardToInch, 1.0);
+            double feet = this.feet.ConvertLength(Length.Unit.FeetToInch, 3.0);
+            Assert.AreEqual(yard, feet);
         }
 
         /// <summary>
@@ -309,9 +309,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given36InchAnd1Inch_WhenComparingLength_ShouldReturnEqual()
         {
-            double inch1 = this.inch.ConvertLength(Length.Unit.Inch, 36.0);
-            double yard1 = this.yard.ConvertLength(Length.Unit.YardToInch, 1.0);
-            Assert.AreEqual(inch1, yard1);
+            double inch = this.inch.ConvertLength(Length.Unit.Inch, 36.0);
+            double yard = this.yard.ConvertLength(Length.Unit.YardToInch, 1.0);
+            Assert.AreEqual(inch, yard);
         }
 
         /// <summary>
@@ -320,9 +320,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void GivenNullAnd1Yard_WhenComparingLength_ShouldReturnNotEqual()
         {
-            Length inch1 = null;
-            double yard1 = this.yard.ConvertLength(Length.Unit.Yard, 1.0);
-            Assert.AreNotEqual(inch1, yard1);
+            Length inch = null;
+            double yard = this.yard.ConvertLength(Length.Unit.Yard, 1.0);
+            Assert.AreNotEqual(inch, yard);
         }
 
         /// <summary>
@@ -391,6 +391,17 @@ namespace Quantity_Measurements_Testing
             double centimeter1 = this.centimeter.ConvertLength(Length.Unit.Centimeter, 2.0);
             double centimeter2 = this.centimeter.ConvertLength(Length.Unit.Centimeter, 2.0);
             Assert.AreEqual(centimeter1, centimeter2);
+        }
+
+        /// <summary>
+        /// TC-3.7 : Given 2 Inch and 5 Centimeter when Compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given2InchAnd5CentiMeter_WhenCompared_ShouldReturnNotEqual()
+        {
+            double inch = this.inch.ConvertLength(Length.Unit.Inch, 2.0);
+            double centimeter = this.centimeter.ConvertLength(Length.Unit.CentimeterToInch, 5.0);
+            Assert.AreEqual(inch, centimeter);
         }
     }
 }
