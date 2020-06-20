@@ -17,55 +17,11 @@ namespace Quantity_Measurements
     public class Length
     {
         /// <summary>
-        /// variable indicating conversion Feet to Inch
-        /// </summary>
-        private const double FeetToInch = 12.0;
-
-        /// <summary>
-        /// variable indicating conversion Inch to Feet
-        /// </summary>
-        private const double InchToFeet = 12.0;
-
-        /// <summary>
-        /// variable indicating conversion Feet to Yard
-        /// </summary>
-        private const double FeetToYard = 3.0;
-
-        /// <summary>
-        /// variable indicating conversion Feet to Yard
-        /// </summary>
-        private const double YardToFeet = 3.0;
-
-        /// <summary>
-        /// variable indicating conversion Yard to Inch
-        /// </summary>
-        private const double YardToInch = 36.0;
-
-        /// <summary>
-        /// variable indicating conversion Inch to Yard
-        /// </summary>
-        private const double InchToYard = 36.0;
-
-        /// <summary>
-        /// Variable to specify Unit
-        /// </summary>
-        private Unit unit;
-
-        /// <summary>
-        /// variable indicating value of Feet
-        /// </summary>
-        private double value;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Length" /> class.
         /// </summary>
-        /// <param name="unit">To specify Measurements</param>
-        /// <param name="value">Feet value</param>
-        public Length(Length.Unit unit, double value)
-        {
-            this.unit = unit;
-            this.value = value;
-        }
+        public Length() 
+        { 
+        }   
 
         /// <summary>
         /// enum to specify if Inch of Feet
@@ -85,73 +41,44 @@ namespace Quantity_Measurements
             /// <summary>
             /// Measurement for Yard
             /// </summary>
-            Yard
+            Yard,
+
+            /// <summary>
+            /// enum Indicating conversion from Feet To Inch
+            /// </summary>
+            FeetToInch,
+
+            /// <summary>
+            /// enum Indicating conversion from Yard To Inch
+            /// </summary>
+            YardToInch
         }
 
         /// <summary>
-        /// Method to compare Between Feet and Inch
+        /// Method to convert one length to another
         /// </summary>
-        /// <param name="that">object for compare</param>
-        /// <returns>Return true or false</returns>
-        public bool Compare(Length that)
+        /// <param name="unit">defines which unit used</param>
+        /// <param name="length">length for conversion</param>
+        /// <returns>returns value after calculation</returns>
+        public double ConvertLength(Unit unit, double length)
         {
-            if (this.unit.Equals(that.unit))
+            try
             {
-                return this.Equals(that);
-            }
+                if (unit.Equals(Unit.FeetToInch))
+                {
+                    return length * 12.0;
+                }
+                else if (unit.Equals(Unit.YardToInch))
+                {
+                    return length * 36.0;
+                }
 
-            if (this.unit.Equals(Unit.Feet) && that.unit.Equals(Unit.Inch))
+                return length;
+            }
+            catch (Exception e)
             {
-                return that.value.CompareTo(this.value * FeetToInch) == 0;
+                throw new QuantityException(QuantityException.ExceptionType.InvalidLength, e.Message);
             }
-
-            if (this.unit.Equals(Unit.Inch) && that.unit.Equals(Unit.Feet))
-            {
-                return that.value.CompareTo(this.value / InchToFeet) == 0;
-            }
-
-            if (this.unit.Equals(Unit.Feet) && that.unit.Equals(Unit.Yard))
-            {
-                return that.value.CompareTo(this.value / FeetToYard) == 0;
-            }
-
-            if (this.unit.Equals(Unit.Yard) && that.unit.Equals(Unit.Feet))
-            {
-                return that.value.CompareTo(this.value * YardToFeet) == 0;
-            }
-
-            if (this.unit.Equals(Unit.Yard) && that.unit.Equals(Unit.Inch))
-            {
-                return that.value.CompareTo(this.value * YardToInch) == 0;
-            }
-
-            if (this.unit.Equals(Unit.Inch) && that.unit.Equals(Unit.Yard))
-            {
-                return that.value.CompareTo(this.value / InchToYard) == 0;
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Method to Compare two objects
-        /// </summary>
-        /// <param name="obj">object for Equality Check</param>
-        /// <returns>return if equal or not</returns>
-        public override bool Equals(object obj)
-        {
-            return obj is Length length &&
-                   this.unit == length.unit &&
-                   this.value == length.value;
-        }
-
-        /// <summary>
-        /// Method to returns HashCode of value
-        /// </summary>
-        /// <returns>return HashCode</returns>
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(this.value);
         }
     }
 }
