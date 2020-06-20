@@ -357,5 +357,16 @@ namespace Quantity_Measurements_Testing
             Length centiMeter2 = null;
             Assert.AreNotEqual(centiMeter1, centiMeter2);
         }
+
+        /// <summary>
+        /// TC-3.4 : Given first 0 CentiMeter Object type and second 2 CentiMeter Object type when checked should return Equal.
+        /// </summary>
+        [Test]
+        public void Given0CentiMeterObjectAnd2centiMeterObject_WhenCompared_ShouldReturnEqual()
+        {
+            double centiMeter1 = this.centiMeter.ConvertLength(Length.Unit.CentiMeter, 0.0);
+            double CentiMeter2 = this.centiMeter.ConvertLength(Length.Unit.CentiMeter, 2.0);
+            Assert.AreEqual(centiMeter1.GetType(), CentiMeter2.GetType());
+        }
     }
 }
