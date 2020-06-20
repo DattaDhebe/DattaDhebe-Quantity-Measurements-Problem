@@ -340,10 +340,10 @@ namespace Quantity_Measurements_Testing
         /// TC-3.2 : Given 0 CentiMeter and 1 CentiMeter when Compared should return Not Equal.
         /// </summary>
         [Test]
-        public void Given0CentiMeterAnd1CentiMeter_WhenComparingLength_ShouldReturnNotEqual()
+        public void Given0CentiMeterAnd1CentiMeter_WhenCompared_ShouldReturnNotEqual()
         {
-            double centiMeter1 = this.inch.ConvertLength(Length.Unit.CentiMeter, 0.0);
-            double centiMeter2 = this.yard.ConvertLength(Length.Unit.CentiMeter, 0.0);
+            double centiMeter1 = this.centiMeter.ConvertLength(Length.Unit.CentiMeter, 0.0);
+            double centiMeter2 = this.centiMeter.ConvertLength(Length.Unit.CentiMeter, 1.0);
             Assert.AreNotEqual(centiMeter1, centiMeter2);
         }
     }
