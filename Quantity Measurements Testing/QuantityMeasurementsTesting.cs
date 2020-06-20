@@ -76,7 +76,7 @@ namespace Quantity_Measurements_Testing
         {
             Length feet1 = new Length(Length.Unit.Feet, 0.0);
             Length feet2 = feet1;
-            bool check = System.Object.ReferenceEquals(feet1, feet2);
+            bool check = object.ReferenceEquals(feet1, feet2);
             Assert.True(check);
         }
 
@@ -125,7 +125,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.10 : Given first Inch Tyepe of Object and second Inch Type of Object when checked should return Equal
+        /// TC-1.10 : Given first Inch Type of Object and second Inch Type of Object when checked should return Equal
         /// </summary>
         [Test]
         public void Given1stInchObjectAnd2ndInchObjectOfType_WhenChecked_ShouldReturnEqual()
@@ -143,7 +143,7 @@ namespace Quantity_Measurements_Testing
         {
             Length inch1 = new Length(Length.Unit.Inch, 0.0);
             Length inch2 = inch1;
-            bool check = System.Object.ReferenceEquals(inch1, inch2);
+            bool check = object.ReferenceEquals(inch1, inch2);
             Assert.True(check);
         }
 
@@ -177,7 +177,7 @@ namespace Quantity_Measurements_Testing
         {
             Length feet1 = new Length(Length.Unit.Feet, 0.0);
             Length inch1 = new Length(Length.Unit.Inch, 0.0);
-            bool compareCheck = feet1.compare(inch1);
+            bool compareCheck = feet1.Compare(inch1);
             Assert.True(compareCheck);
         }
 
@@ -188,11 +188,9 @@ namespace Quantity_Measurements_Testing
         public void Given0FeetAnd1Inch_WhenChecked_ShouldReturnNotEqualLength()
         {
             Length feet1 = new Length(Length.Unit.Feet, 0.0);
-            Length inch1 = new Length(Length.Unit.Inch, 0.0);
-            bool compareCheck = feet1.compare(inch1);
+            Length inch1 = new Length(Length.Unit.Inch, 1.0);
+            bool compareCheck = feet1.Compare(inch1);
             Assert.False(compareCheck);
         }
-
-
     }
 }

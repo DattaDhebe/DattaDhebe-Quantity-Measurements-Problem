@@ -1,10 +1,24 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Program.cs" company="BridgeLabz Solution">
+//  Copyright (c) BridgeLabz Solution. All rights reserved.
+// </copyright>
+// <author>Datta Dhebe</author>
+//-----------------------------------------------------------------------
 
 namespace Quantity_Measurements
 {
-    class Program
+    using System;
+
+    /// <summary>
+    /// class Program
+    /// </summary>
+    public class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// main method
+        /// </summary>
+        /// <param name="args">arguments for main method</param>
+        public static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
         }

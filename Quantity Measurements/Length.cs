@@ -17,6 +17,11 @@ namespace Quantity_Measurements
     public class Length
     {
         /// <summary>
+        /// variable indicating conversion Feet to Inch
+        /// </summary>
+        public const double FeetToInch = 12.0;
+
+        /// <summary>
         /// Variable to specify Unit
         /// </summary>
         private Unit unit;
@@ -50,13 +55,29 @@ namespace Quantity_Measurements
             /// <summary>
             /// Measurement for Inch
             /// </summary>
-            Inch
+            Inch          
         }
 
-        public bool compare(Length that)
+        /// <summary>
+        /// Method to compare Between Feet and Inch
+        /// </summary>
+        /// <param name="that">object for compare</param>
+        /// <returns>Return true or false</returns>
+        public bool Compare(Length that)
         {
+            if (this.unit.Equals(that.unit))
+            {
+                return this.Equals(that);
+            }
 
+            if (this.unit.Equals(Unit.Feet) && that.unit.Equals(Unit.Inch))
+            {
+                return that.value.CompareTo(this.value * FeetToInch) == 0;
+            }
+
+            return false;
         }
+
         /// <summary>
         /// Method to Compare two objects
         /// </summary>
@@ -65,8 +86,8 @@ namespace Quantity_Measurements
         public override bool Equals(object obj)
         {
             return obj is Length length &&
-                   unit == length.unit &&
-                   value == length.value;
+                   this.unit == length.unit &&
+                   this.value == length.value;
         }
 
         /// <summary>
@@ -77,7 +98,5 @@ namespace Quantity_Measurements
         {
             return HashCode.Combine(this.value);
         }
-
-        
     }
 }
