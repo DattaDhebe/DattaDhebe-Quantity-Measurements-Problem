@@ -60,7 +60,7 @@ namespace Quantity_Measurements
             /// <summary>
             /// Measurement for Inch
             /// </summary>
-            Inch          
+            Inch,         
         }
 
         /// <summary>

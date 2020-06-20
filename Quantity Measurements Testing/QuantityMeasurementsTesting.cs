@@ -206,7 +206,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.17 : Given 1 Feet and 1 Feet when Comapared should return True.
+        /// TC-1.17 : Given 1 Feet and 1 Feet when Comapred should return True.
         /// </summary>
         [Test]
         public void Given1FeetAnd1Feet_WhenComapared_ShouldReturnTrue()
