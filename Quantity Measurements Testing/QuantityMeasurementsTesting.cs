@@ -170,7 +170,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.14 : Given 0 Feet and 0 Inch when checked should return Equal Length.
+        /// TC-1.14 : Given 0 Feet and 0 Inch when checked should return True.
         /// </summary>
         [Test]
         public void Given0FeetAnd0Inch_WhenCompared_ShouldReturnEqualLength()
@@ -182,7 +182,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.15 : Given 0 Feet and 1 Inch when checked should return Not Equal Length.
+        /// TC-1.15 : Given 0 Feet and 1 Inch when checked should return False.
         /// </summary>
         [Test]
         public void Given0FeetAnd1Inch_WhenCompared_ShouldReturnNotEqualLength()
@@ -194,7 +194,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.16 : Given 1 Feet and 12 Inch when checked should return Equal Length.
+        /// TC-1.16 : Given 1 Feet and 12 Inch when checked should return True.
         /// </summary>
         [Test]
         public void Given1FeetAnd12Inch_WhenComapared_ShouldReturnEqualLength()
@@ -206,7 +206,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-1.17 : Given 1 Feet and 1 Feet when Comapred should return Equal Length.
+        /// TC-1.17 : Given 1 Feet and 1 Feet when Comapred should return True.
         /// </summary>
         [Test]
         public void Given1FeetAnd1Feet_WhenComapared_ShouldReturnEqualLength()
@@ -214,6 +214,18 @@ namespace Quantity_Measurements_Testing
             Length feet1 = new Length(Length.Unit.Feet, 1.0);
             Length feet2 = new Length(Length.Unit.Feet, 1.0);
             bool compareCheck = feet1.Compare(feet2);
+            Assert.True(compareCheck);
+        }
+
+        /// <summary>
+        /// TC-1.17 : Given 1 Yard and 1 Yard when Comapred should return Equal Length.
+        /// </summary>
+        [Test]
+        public void Given1YardAnd1Yard_WhenComparingLength_ShouldReturnEqualLength()
+        {
+            Length yard1 = new Length(Length.Unit.Yard, 1.0);
+            Length yard2 = new Length(Length.Unit.Yard, 1.0);
+            bool compareCheck = yard1.Compare(yard2);
             Assert.True(compareCheck);
         }
     }
