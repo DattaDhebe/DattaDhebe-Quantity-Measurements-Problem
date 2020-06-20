@@ -276,5 +276,29 @@ namespace Quantity_Measurements_Testing
             bool compareCheck = yard1.Compare(inch1);
             Assert.True(compareCheck);
         }
+
+        /// <summary>
+        /// TC-2.5 : Given 1 Yard and 3 Feet when Compared should return True.
+        /// </summary>
+        [Test]
+        public void Given1YardAnd3Feet_WhenComparingLength_ShouldReturnTrue()
+        {
+            Length yard1 = new Length(Length.Unit.Yard, 1.0);
+            Length inch1 = new Length(Length.Unit.Feet, 3);
+            bool compareCheck = yard1.Compare(inch1);
+            Assert.True(compareCheck);
+        }
+
+        /// <summary>
+        /// TC-2.6 : Given 36 Inch and 1 Yard when Compared should return True.
+        /// </summary>
+        [Test]
+        public void Given36InchAnd1Inch_WhenComparingLength_ShouldReturnTrue()
+        {
+            Length inch1 = new Length(Length.Unit.Inch, 36.0);
+            Length yard1 = new Length(Length.Unit.Yard, 1.0);
+            bool compareCheck = inch1.Compare(yard1);
+            Assert.True(compareCheck);
+        }
     }
 }
