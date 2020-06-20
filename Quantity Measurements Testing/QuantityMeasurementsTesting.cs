@@ -228,5 +228,17 @@ namespace Quantity_Measurements_Testing
             bool compareCheck = inch1.Compare(feet1);
             Assert.True(compareCheck);
         }
+
+        /// <summary>
+        /// TC-1.19 : Given 1 Yard and 1 Yard when Comapred should return Equal Length.
+        /// </summary>
+        [Test]
+        public void Given1YardAnd1Yard_WhenComapared_ShouldReturnTrue()
+        {
+            Length yard1 = new Length(Length.Unit.Yard, 1.0);
+            Length yard2 = new Length(Length.Unit.Yard, 1.0);
+            bool compareCheck = yard1.Compare(yard2);
+            Assert.True(compareCheck);
+        }
     }
 }

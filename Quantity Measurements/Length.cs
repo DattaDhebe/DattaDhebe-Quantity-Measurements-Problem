@@ -60,7 +60,12 @@ namespace Quantity_Measurements
             /// <summary>
             /// Measurement for Inch
             /// </summary>
-            Inch,         
+            Inch,
+
+            /// <summary>
+            /// Measurement for Yard
+            /// </summary>
+            Yard
         }
 
         /// <summary>
