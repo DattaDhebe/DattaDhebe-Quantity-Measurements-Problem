@@ -414,5 +414,16 @@ namespace Quantity_Measurements_Testing
             double centimeter = this.centimeter.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
             Assert.AreNotEqual(inch, centimeter);
         }
+
+        /// <summary>
+        /// TC-3.9 : Given 1 Feet and 1 Centimeter when Compared should return Not Equal.
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd1CentiMeter_WhenCompared_ShouldReturnNotEqual()
+        {
+            double feet = this.inch.ConvertLength(Length.Unit.Feet, 1.0);
+            double centimeter = this.centimeter.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
+            Assert.AreNotEqual(feet, centimeter);
+        }
     }
 }
