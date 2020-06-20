@@ -346,5 +346,16 @@ namespace Quantity_Measurements_Testing
             double centiMeter2 = this.centiMeter.ConvertLength(Length.Unit.CentiMeter, 1.0);
             Assert.AreNotEqual(centiMeter1, centiMeter2);
         }
+
+        /// <summary>
+        /// TC-3.3 : Given first 0 CentiMeter and second CentiMeter Null when Compared should return Not Equal.
+        /// </summary>
+        [Test]
+        public void Given0CentiMeterAndSecondNull_WhenCompared_ShouldReturnNotEqual()
+        {
+            double centiMeter1 = this.centiMeter.ConvertLength(Length.Unit.CentiMeter, 0.0);
+            Length centiMeter2 = null;
+            Assert.AreNotEqual(centiMeter1, centiMeter2);
+        }
     }
 }
