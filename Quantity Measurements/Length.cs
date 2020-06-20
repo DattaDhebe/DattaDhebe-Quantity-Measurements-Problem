@@ -22,6 +22,11 @@ namespace Quantity_Measurements
         private const double FeetToInch = 12.0;
 
         /// <summary>
+        /// variable indicating conversion Inch to Feet
+        /// </summary>
+        private const double InchToFeet = 12.0;
+
+        /// <summary>
         /// Variable to specify Unit
         /// </summary>
         private Unit unit;
@@ -75,7 +80,10 @@ namespace Quantity_Measurements
                 return that.value.CompareTo(this.value * FeetToInch) == 0;
             }
 
-
+            if (this.unit.Equals(Unit.Inch) && that.unit.Equals(Unit.Feet))
+            {
+                return that.value.CompareTo(this.value / InchToFeet) == 0;
+            }
 
             return false;
         }
