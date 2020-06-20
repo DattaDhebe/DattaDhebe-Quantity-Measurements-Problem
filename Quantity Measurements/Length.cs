@@ -61,7 +61,8 @@ namespace Quantity_Measurements
         public override bool Equals(object obj)
         {
             return obj is Length length &&
-                   this.value == length.value;
+                   unit == length.unit &&
+                   value == length.value;
         }
 
         /// <summary>

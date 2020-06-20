@@ -151,11 +151,24 @@ namespace Quantity_Measurements_Testing
         /// TC-1.12 : Given first Inch and second Inch same value when checked should return Equal
         /// </summary>
         [Test]
-        public void Given1stAnd2ndInchSameValue_WhenChecked_ShouldReturnNotEqual()
+        public void Given1stAnd2ndInchSameValue_WhenChecked_ShouldReturnEqual()
         {
             Length inch1 = new Length(Length.Unit.Inch, 2.0);
             Length inch2 = new Length(Length.Unit.Inch, 2.0);
             Assert.AreEqual(inch1, inch2);
         }
+
+        /// <summary>
+        /// TC-1.13 : Given 1 Feet and 1 Inch when checked should return Not Equal
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd1Inch_WhenChecked_ShouldReturnNotEqual()
+        {
+            Length feet1 = new Length(Length.Unit.Feet, 1.0);
+            Length inch2 = new Length(Length.Unit.Inch, 1.0);
+            Assert.AreNotEqual(feet1, inch2);
+        }
+
+
     }
 }
