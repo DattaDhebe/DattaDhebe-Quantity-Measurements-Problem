@@ -421,9 +421,22 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd1CentiMeter_WhenCompared_ShouldReturnNotEqual()
         {
-            double feet = this.inch.ConvertLength(Length.Unit.Feet, 1.0);
+            double feet = this.feet.ConvertLength(Length.Unit.Feet, 1.0);
             double centimeter = this.centimeter.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
             Assert.AreNotEqual(feet, centimeter);
+        }
+
+        /// <summary>
+        /// TC-4.1 : Given 2 inch and 2 inch when Performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given2InchAnd2Inch_WhenCalculated_ShouldReturnResult()
+        {
+            Length length = new Length();
+            double firstValue = this.inch.ConvertLength(Length.Unit.Inch, 2.0);
+            double secondValue = this.inch.ConvertLength(Length.Unit.Inch, 2.0);
+            double result = length.CalculateLength(firstValue, secondValue);
+            Assert.AreEqual(4.0, result);
         }
     }
 }

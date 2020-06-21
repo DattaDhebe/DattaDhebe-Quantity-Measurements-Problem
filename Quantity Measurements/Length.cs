@@ -116,5 +116,10 @@ namespace Quantity_Measurements
                 throw new QuantityException(QuantityException.ExceptionType.InvalidLength, e.Message);
             }
         }
+
+        public double CalculateLength(double firstValue, double secondValue)
+        {
+            return firstValue + secondValue;
+        }
     }
 }
