@@ -581,5 +581,17 @@ namespace Quantity_Measurements_Testing
             double result = length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(7.56, result);
         }
+
+        /// <summary>
+        /// TC-6.5 : Given 1 gallon and 1000 milliliter when Performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given1GallonAnd1000Milliliter_WhenCalculated_ShouldReturnResult()
+        {
+            double firstValue = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
+            double secondValue = this.length.ConvertLength(Length.Unit.Milliliter, 1000.0);
+            double result = length.CalculateLength(firstValue, secondValue);
+            Assert.AreEqual(7.56, result);
+        }
     }
 }
