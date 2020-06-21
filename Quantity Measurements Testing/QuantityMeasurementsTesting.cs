@@ -505,5 +505,16 @@ namespace Quantity_Measurements_Testing
             double liter = this.length.ConvertLength(Length.Unit.Liter, 2.78);
             Assert.AreNotEqual(gallon, liter);
         }
+
+        /// <summary>
+        /// TC-5.4 : Given 1 liter and 1 liter when Compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given1LiterAnd1Liter_WhenCompared_ShouldReturnEqual()
+        {
+            double gallon = this.length.ConvertLength(Length.Unit.Liter, 1.0);
+            double liter = this.length.ConvertLength(Length.Unit.Liter, 1.0);
+            Assert.AreEqual(gallon, liter);
+        }
     }
 }
