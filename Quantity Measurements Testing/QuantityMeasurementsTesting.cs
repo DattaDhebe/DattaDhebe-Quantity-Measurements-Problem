@@ -22,12 +22,18 @@ namespace Quantity_Measurements_Testing
         private Length length = null;
 
         /// <summary>
+        /// creating Object of class Length
+        /// </summary>
+        private Weights weights = null;
+
+        /// <summary>
         /// Method to Assign of Class Instance
         /// </summary>
         [SetUp]
         public void Setup()
         {
             this.length = new Length();
+            this.weights = new Weights();
         }
 
         /// <summary>
@@ -593,5 +599,20 @@ namespace Quantity_Measurements_Testing
             double result = length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(7.56, result);
         }
+
+        /// <summary>
+        /// TC-7.1 : Given 1 kilogram and 1000 grams when compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given1KilogramAnd1000Grams_WhenCompared_ShouldReturnEqual()
+        {
+            double kilogram = this.weights.ConvertWeigths(Weights.Unit.KilogramToGrams, 1.0);
+            double grams = this.weights.ConvertWeigths(Weights.Unit.Grams, 1000.0);
+            Assert.AreEqual(kilogram, grams);
+        }
+
+        
+
+
     }
 }
