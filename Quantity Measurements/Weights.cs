@@ -7,15 +7,24 @@ namespace Quantity_Measurements
     public class Weights
     {
         /// <summary>
-        /// pre-defined value for converting Feet to Inch
+        /// pre-defined value for converting Kilogram to Grams
         /// </summary>
         private const double KilogramToGrams = 1000;
+
+        /// <summary>
+        /// pre-defined value for converting Tonne to Kilogram
+        /// </summary>
+        private const double TonneToKilograms = 1000;
+
+        
 
         public enum Unit 
         { 
             kilogram,
             Grams,
-            KilogramToGrams
+            Tonne,
+            KilogramToGrams,
+            TonneToKilograms
         }
 
         public double ConvertWeigths(Unit unit, double weights)
@@ -25,6 +34,11 @@ namespace Quantity_Measurements
                 if (unit.Equals(Unit.KilogramToGrams))
                 {
                     return weights * KilogramToGrams;
+                }
+
+                if (unit.Equals(Unit.TonneToKilograms))
+                {
+                    return weights * TonneToKilograms;
                 }
 
                 return weights;

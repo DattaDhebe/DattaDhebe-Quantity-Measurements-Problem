@@ -589,13 +589,13 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-6.5 : Given 1 gallon and 1000 milliliter when Performed Addition should return Result.
+        /// TC-6.5 : Given 1 gallon and 1 Gallon when converted should return Result.
         /// </summary>
         [Test]
-        public void Given1GallonAnd1000Milliliter_WhenCalculated_ShouldReturnResult()
+        public void Given1GallonAnd1Gallon_WhenConverted_ShouldReturnResult()
         {
             double firstValue = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
-            double secondValue = this.length.ConvertLength(Length.Unit.Milliliter, 1000.0);
+            double secondValue = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
             double result = length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(7.56, result);
         }
@@ -611,8 +611,15 @@ namespace Quantity_Measurements_Testing
             Assert.AreEqual(kilogram, grams);
         }
 
-        
-
-
+        /// <summary>
+        /// TC-7.2 : Given 1 tonne and 1000 kgs when compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given1TonneAnd1000Kilograms_WhenCompared_ShouldReturnEqual()
+        {
+            double kilogram = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
+            double grams = this.weights.ConvertWeigths(Weights.Unit.kilogram, 1000.0);
+            Assert.AreEqual(kilogram, grams);
+        }
     }
 }
