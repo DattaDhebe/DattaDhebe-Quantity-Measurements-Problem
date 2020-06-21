@@ -688,9 +688,21 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0CelsiusAnd0Fahrenheit_WhenCompared_ShouldReturnEqual()
         {
-            double celsius = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 0.0);
+            double celsius = this.temperature.ConvertWeigths(Temperature.Unit.Celsius, 0.0);
             double fahrenheit = this.temperature.ConvertWeigths(Temperature.Unit.Fahrenheit, 0.0);
             Assert.AreEqual(celsius, fahrenheit);
+        }
+
+        /// <summary>
+        /// TC-8.5 : Given 4 Celsius and 39.4 farenheit when converted and performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given4CelsiusAnd39Point4_WhenConvertedAndCalculated_ShouldReturnEqual()
+        {
+            double firstValue = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 4.0);
+            double secondValue = this.temperature.ConvertWeigths(Temperature.Unit.Fahrenheit, 39.2);
+            double result = length.CalculateLength(firstValue, secondValue);
+            Assert.AreEqual(78.4, result);
         }
     }
 }
