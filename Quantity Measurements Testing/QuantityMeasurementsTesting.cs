@@ -480,8 +480,19 @@ namespace Quantity_Measurements_Testing
         public void Given1GallonAnd3Point78Liter_WhenCompared_ShouldReturnEqual()
         {
             double gallon = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
-            double litre = this.length.ConvertLength(Length.Unit.Liter, 3.78);
-            Assert.AreEqual(gallon, litre);
+            double liter = this.length.ConvertLength(Length.Unit.Liter, 3.78);
+            Assert.AreEqual(gallon, liter);
+        }
+
+        /// <summary>
+        /// TC-5.2 : Given 1 liter and 1000 milileter when Compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given1LiterAnd1000Mililiter_WhenCompared_ShouldReturnEqual()
+        {
+            double liter = this.length.ConvertLength(Length.Unit.LiterToMilliliter, 1.0);
+            double mililiter = this.length.ConvertLength(Length.Unit.Milliliter, 1000);
+            Assert.AreEqual(liter, mililiter);
         }
     }
 }

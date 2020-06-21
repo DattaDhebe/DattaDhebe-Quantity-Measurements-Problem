@@ -38,6 +38,11 @@ namespace Quantity_Measurements
         private const double GallonToLiter = 3.78;
 
         /// <summary>
+        /// pre-defined value for converting Liter to Milliliter
+        /// </summary>
+        private const double LiterToMilliliter = 1000;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Length" /> class.
         /// </summary>
         public Length() 
@@ -80,6 +85,11 @@ namespace Quantity_Measurements
             Centimeter,
 
             /// <summary>
+            /// Measurement for Milliliter
+            /// </summary>
+            Milliliter,
+
+            /// <summary>
             /// enum Indicating conversion from Feet To Inch
             /// </summary>
             FeetToInch,
@@ -97,7 +107,12 @@ namespace Quantity_Measurements
             /// <summary>
             /// enum Indicating conversion from Gallon To Liter
             /// </summary>
-            GallonToLiter
+            GallonToLiter,
+
+            /// <summary>
+            /// enum Indicating conversion from Liter To Milliliter
+            /// </summary>
+            LiterToMilliliter
         }
 
         /// <summary>
@@ -128,6 +143,11 @@ namespace Quantity_Measurements
                 if (unit.Equals(Unit.GallonToLiter))
                 {
                     return length * GallonToLiter;
+                }
+
+                if (unit.Equals(Unit.LiterToMilliliter))
+                {
+                    return length * LiterToMilliliter;
                 }
 
                 return length;
