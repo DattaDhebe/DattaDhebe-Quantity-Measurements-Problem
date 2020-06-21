@@ -672,7 +672,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-8.2 : Given 2 Celsius and 33.8 Fahrenheit when compared should return Not Equal.
+        /// TC-8.3 : Given 2 Celsius and 33.8 Fahrenheit when compared should return Not Equal.
         /// </summary>
         [Test]
         public void Given2CelsiusAnd33Point8Fahrenheit_WhenCompared_ShouldReturnEqual()
@@ -680,6 +680,17 @@ namespace Quantity_Measurements_Testing
             double celsius = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 2.0);
             double fahrenheit = this.temperature.ConvertWeigths(Temperature.Unit.Fahrenheit, 33.8);
             Assert.AreNotEqual(celsius, fahrenheit);
+        }
+
+        /// <summary>
+        /// TC-8.4 : Given 0 Celsius and 0 Fahrenheit when compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given0CelsiusAnd0Fahrenheit_WhenCompared_ShouldReturnEqual()
+        {
+            double celsius = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 0.0);
+            double fahrenheit = this.temperature.ConvertWeigths(Temperature.Unit.Fahrenheit, 0.0);
+            Assert.AreEqual(celsius, fahrenheit);
         }
     }
 }
