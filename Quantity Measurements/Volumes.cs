@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="Weights.cs" company="BridgeLabz Solution">
+// <copyright file="Volumes.cs" company="BridgeLabz Solution">
 //  Copyright (c) BridgeLabz Solution. All rights reserved.
 // </copyright>
 // <author>Datta Dhebe</author>
@@ -12,72 +12,72 @@ namespace Quantity_Measurements
     using System.Text;
 
     /// <summary>
-    /// class for weights
+    /// class for Volume
     /// </summary>
-    public class Weights
+    public class Volumes
     {
-        /// <summary>
-        /// pre-defined value for converting Kilogram to Grams
-        /// </summary>
-        private const double KilogramToGrams = 1000;
-
-        /// <summary>
-        /// pre-defined value for converting Tone to Kilogram
-        /// </summary>
-        private const double TonneToKilograms = 1000;
-
         /// <summary>
         /// enum to specify measurements
         /// </summary>
-        public enum Unit 
-        { 
+        public enum Unit
+        {
             /// <summary>
-            /// for measurement of kilogram
+            /// Measurement for Gallon
             /// </summary>
-            kilogram,
+            Gallon,
 
             /// <summary>
-            /// for measurement of grams
+            /// Measurement for Liter
             /// </summary>
-            Grams,
+            Liter,
 
             /// <summary>
-            /// for measurement of Tone
+            /// Measurement for Milliliter
             /// </summary>
-            Tonne,
+            Milliliter,
 
             /// <summary>
-            /// for measurement of kilogram TO grams
+            /// enum Indicating conversion from Gallon To Liter
             /// </summary>
-            KilogramToGrams,
+            GallonToLiter,
 
             /// <summary>
-            /// for measurement of Tone To kilogram
+            /// enum Indicating conversion from Liter To Milliliter
             /// </summary>
-            TonneToKilograms
+            LiterToMilliliter,
+
+            /// <summary>
+            /// enum Indicating conversion from Milliliter To Liter
+            /// </summary>
+            MilliliterToLiter
         }
 
         /// <summary>
         /// Method to convert one volume to another
         /// </summary>
         /// <param name="unit">defines which unit used</param>
-        /// <param name="weights">weights for conversion</param>
+        /// <param name="volume">volume for conversion</param>
         /// <returns>returns value after calculation</returns>
-        public double ConvertWeigths(Unit unit, double weights)
+        public double ConvertVolumes(Unit unit, double volume)
         {
             try
-            {
-                if (unit.Equals(Unit.KilogramToGrams))
+            {              
+                if (unit.Equals(Unit.GallonToLiter))
                 {
-                    return weights * KilogramToGrams;
+                    return volume * 3.78;
                 }
 
-                if (unit.Equals(Unit.TonneToKilograms))
+                if (unit.Equals(Unit.LiterToMilliliter))
                 {
-                    return weights * TonneToKilograms;
+                    return volume * 1000;
                 }
 
-                return weights;
+                if (unit.Equals(Unit.MilliliterToLiter))
+                {
+                    return volume / 1000;
+                }
+
+                return volume;
             }
             catch (QuantityException e)
             {

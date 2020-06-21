@@ -16,32 +16,7 @@ namespace Quantity_Measurements
     /// Class for Feet Entity
     /// </summary>
     public class Length
-    {
-        /// <summary>
-        /// pre-defined value for converting Feet to Inch
-        /// </summary>
-        private const double FeetToInch = 12.0;
-
-        /// <summary>
-        /// pre-defined value for converting Yard to Inch
-        /// </summary>
-        private const double YardToInch = 36.0;
-
-        /// <summary>
-        /// pre-defined value for converting Centimeter to Inch
-        /// </summary>
-        private const double CentimeterToInch = 2.5;
-
-        /// <summary>
-        /// pre-defined value for converting Gallon to Liter
-        /// </summary>
-        private const double GallonToLiter = 3.78;
-
-        /// <summary>
-        /// pre-defined value for converting Liter to Milliliter
-        /// </summary>
-        private const double LiterToMilliliter = 1000;
-
+    {     
         /// <summary>
         /// Initializes a new instance of the <see cref="Length" /> class.
         /// </summary>
@@ -68,27 +43,12 @@ namespace Quantity_Measurements
             /// Measurement for Yard
             /// </summary>
             Yard,
-
-            /// <summary>
-            /// Measurement for Gallon
-            /// </summary>
-            Gallon,
-
-            /// <summary>
-            /// Measurement for Liter
-            /// </summary>
-            Liter,
-
+           
             /// <summary>
             /// Measurement for Centimeter
             /// </summary>
             Centimeter,
-
-            /// <summary>
-            /// Measurement for Milliliter
-            /// </summary>
-            Milliliter,
-
+          
             /// <summary>
             /// enum Indicating conversion from Feet To Inch
             /// </summary>
@@ -102,19 +62,7 @@ namespace Quantity_Measurements
             /// <summary>
             /// enum Indicating conversion from Centimeter To Inch
             /// </summary>
-            CentimeterToInch,
-
-            /// <summary>
-            /// enum Indicating conversion from Gallon To Liter
-            /// </summary>
-            GallonToLiter,
-
-            /// <summary>
-            /// enum Indicating conversion from Liter To Milliliter
-            /// </summary>
-            LiterToMilliliter,
-            MilliliterToLiter
-
+            CentimeterToInch,            
         }
 
         /// <summary>
@@ -129,34 +77,19 @@ namespace Quantity_Measurements
             {
                 if (unit.Equals(Unit.FeetToInch))
                 {
-                    return length * FeetToInch;
+                    return length * 12.0;
                 }
                 
                 if (unit.Equals(Unit.YardToInch))
                 {
-                    return length * YardToInch;
+                    return length * 36.0;
                 }
 
                 if (unit.Equals(Unit.CentimeterToInch))
                 {
-                    return length / CentimeterToInch;
+                    return length / 2.5;
                 }
-
-                if (unit.Equals(Unit.GallonToLiter))
-                {
-                    return length * GallonToLiter;
-                }
-
-                if (unit.Equals(Unit.LiterToMilliliter))
-                {
-                    return length * LiterToMilliliter;
-                }
-
-                if (unit.Equals(Unit.MilliliterToLiter))
-                {
-                    return length / LiterToMilliliter;
-                }
-
+               
                 return length;
             }
             catch (QuantityException e)

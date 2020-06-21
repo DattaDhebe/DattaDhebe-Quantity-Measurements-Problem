@@ -22,11 +22,19 @@ namespace Quantity_Measurements_Testing
         private Length length = null;
 
         /// <summary>
-        /// creating Object of class Length
+        /// creating Object of class Weights
         /// </summary>
         private Weights weights = null;
 
+        /// <summary>
+        /// creating Object of class Temperature
+        /// </summary>
         private Temperature temperature = null;
+
+        /// <summary>
+        /// creating Object of class volumes
+        /// </summary>
+        private Volumes volumes = null;
 
         /// <summary>
         /// Method to Assign of Class Instance
@@ -37,6 +45,7 @@ namespace Quantity_Measurements_Testing
             this.length = new Length();
             this.weights = new Weights();
             this.temperature = new Temperature();
+            this.volumes = new Volumes();
         }
 
         /// <summary>
@@ -425,7 +434,7 @@ namespace Quantity_Measurements_Testing
         {
             double firstValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
             double secondValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(4.0, result);
         }
 
@@ -437,7 +446,7 @@ namespace Quantity_Measurements_Testing
         {
             double firstValue = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
             double secondValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(14.0, result);
         }
 
@@ -449,7 +458,7 @@ namespace Quantity_Measurements_Testing
         {
             double firstValue = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
             double secondValue = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(24.0, result);
         }
 
@@ -461,7 +470,7 @@ namespace Quantity_Measurements_Testing
         {
             double firstValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
             double secondValue = this.length.ConvertLength(Length.Unit.CentimeterToInch, 2.5);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(3.0, result);
         }
 
@@ -473,7 +482,7 @@ namespace Quantity_Measurements_Testing
         {
             double firstValue = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
             double secondValue = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(72.0, result);
         }
 
@@ -483,19 +492,19 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd3Point78Liter_WhenCompared_ShouldReturnEqual()
         {
-            double gallon = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
-            double liter = this.length.ConvertLength(Length.Unit.Liter, 3.78);
+            double gallon = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+            double liter = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 3.78);
             Assert.AreEqual(gallon, liter);
         }
 
         /// <summary>
-        /// TC-5.2 : Given 1 liter and 1000 milileter when Compared should return Equal.
+        /// TC-5.2 : Given 1 liter and 1000 milliliter when Compared should return Equal.
         /// </summary>
         [Test]
         public void Given1LiterAnd1000Mililiter_WhenCompared_ShouldReturnEqual()
         {
-            double liter = this.length.ConvertLength(Length.Unit.LiterToMilliliter, 1.0);
-            double mililiter = this.length.ConvertLength(Length.Unit.Milliliter, 1000);
+            double liter = this.volumes.ConvertVolumes(Volumes.Unit.LiterToMilliliter, 1.0);
+            double mililiter = this.volumes.ConvertVolumes(Volumes.Unit.Milliliter, 1000);
             Assert.AreEqual(liter, mililiter);
         }
 
@@ -505,8 +514,8 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd2Point78Liter_WhenCompared_ShouldReturnEqual()
         {
-            double gallon = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
-            double liter = this.length.ConvertLength(Length.Unit.Liter, 2.78);
+            double gallon = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+            double liter = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 2.78);
             Assert.AreNotEqual(gallon, liter);
         }
 
@@ -516,8 +525,8 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1LiterAnd1Liter_WhenCompared_ShouldReturnEqual()
         {
-            double liter1 = this.length.ConvertLength(Length.Unit.Liter, 1.0);
-            double liter2 = this.length.ConvertLength(Length.Unit.Liter, 1.0);
+            double liter1 = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
+            double liter2 = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
             Assert.AreEqual(liter1, liter2);
         }
 
@@ -527,8 +536,8 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd1Liter_WhenCompared_ShouldReturnNotEqual()
         {
-            double gallon = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
-            double liter = this.length.ConvertLength(Length.Unit.Liter, 1.0);
+            double gallon = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+            double liter = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
             Assert.AreNotEqual(gallon, liter);
         }
 
@@ -538,8 +547,8 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd1Gallon_WhenCompared_ShouldReturnEqual()
         {
-            double gallon1 = this.length.ConvertLength(Length.Unit.Gallon, 1.0);
-            double gallon2 = this.length.ConvertLength(Length.Unit.Gallon, 1.0);
+            double gallon1 = this.volumes.ConvertVolumes(Volumes.Unit.Gallon, 1.0);
+            double gallon2 = this.volumes.ConvertVolumes(Volumes.Unit.Gallon, 1.0);
             Assert.AreEqual(gallon1, gallon2);
         }
 
@@ -549,9 +558,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd3Point78Liter_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
-            double secondValue = this.length.ConvertLength(Length.Unit.Liter, 3.78);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+            double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 3.78);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(7.56, result);
         }
 
@@ -561,9 +570,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1LiterAnd1000Milliliter_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.length.ConvertLength(Length.Unit.Liter, 1.0);
-            double secondValue = this.length.ConvertLength(Length.Unit.MilliliterToLiter, 1000.0);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
+            double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.MilliliterToLiter, 1000.0);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(2.0, result);
         }
 
@@ -573,9 +582,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1000MilliliterAnd1000Milliliter_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.length.ConvertLength(Length.Unit.MilliliterToLiter, 1000.0);
-            double secondValue = this.length.ConvertLength(Length.Unit.MilliliterToLiter, 1000.0);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.MilliliterToLiter, 1000.0);
+            double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.MilliliterToLiter, 1000.0);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(2.0, result);
         }
 
@@ -585,9 +594,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd1Gallon_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
-            double secondValue = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+            double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(7.56, result);
         }
 
@@ -597,9 +606,9 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd1Gallon_WhenConverted_ShouldReturnResult()
         {
-            double firstValue = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
-            double secondValue = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+            double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(7.56, result);
         }
 
@@ -615,7 +624,7 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-7.2 : Given 1 tonne and 1000 kgs when compared should return Equal.
+        /// TC-7.2 : Given 1 tone and 1000 kilograms when compared should return Equal.
         /// </summary>
         [Test]
         public void Given1TonneAnd1000Kilograms_WhenCompared_ShouldReturnEqual()
@@ -626,26 +635,26 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-7.3 : Given 1 tonne and 1000 mg when performed Addition should return Result.
+        /// TC-7.3 : Given 1 tone and 1000 milligrams when performed Addition should return Result.
         /// </summary>
         [Test]
         public void Given1TonneAnd1000mg_WhenCalculated_ShouldReturnEqual()
         {
             double firstValue = this.weights.ConvertWeigths(Weights.Unit.Tonne, 1.0);
             double secondValue = this.weights.ConvertWeigths(Weights.Unit.Grams, 1000.0);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(1001.0, result);
         }
 
         /// <summary>
-        /// TC-7.4 : Given 1 tonne and 1 tonne when converted and performed Addition should return Result.
+        /// TC-7.4 : Given 1 tone and 1 tone when converted and performed Addition should return Result.
         /// </summary>
         [Test]
         public void Given1TonneAnd1Tonne_WhenConvertedAndCalculated_ShouldReturnEqual()
         {
             double firstValue = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
             double secondValue = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(2000.0, result);
         }
 
@@ -655,8 +664,8 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1CelsiusAnd33Point8Fahrenheit_WhenCompared_ShouldReturnEqual()
         {
-            double celsius = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 1.0);
-            double fahrenheit = this.temperature.ConvertWeigths(Temperature.Unit.Fahrenheit, 33.8);
+            double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 1.0);
+            double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 33.8);
             Assert.AreEqual(celsius, fahrenheit);
         }
 
@@ -666,8 +675,8 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given100CelsiusAnd212Fahrenheit_WhenCompared_ShouldReturnEqual()
         {
-            double celsius = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 100.0);
-            double fahrenheit = this.temperature.ConvertWeigths(Temperature.Unit.Fahrenheit, 212);
+            double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 100.0);
+            double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 212);
             Assert.AreEqual(celsius, fahrenheit);
         }
 
@@ -677,8 +686,8 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given2CelsiusAnd33Point8Fahrenheit_WhenCompared_ShouldReturnEqual()
         {
-            double celsius = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 2.0);
-            double fahrenheit = this.temperature.ConvertWeigths(Temperature.Unit.Fahrenheit, 33.8);
+            double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 2.0);
+            double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 33.8);
             Assert.AreNotEqual(celsius, fahrenheit);
         }
 
@@ -688,31 +697,31 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0CelsiusAnd0Fahrenheit_WhenCompared_ShouldReturnEqual()
         {
-            double celsius = this.temperature.ConvertWeigths(Temperature.Unit.Celsius, 0.0);
-            double fahrenheit = this.temperature.ConvertWeigths(Temperature.Unit.Fahrenheit, 0.0);
+            double celsius = this.temperature.ConvertTemperature(Temperature.Unit.Celsius, 0.0);
+            double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 0.0);
             Assert.AreEqual(celsius, fahrenheit);
         }
 
         /// <summary>
-        /// TC-8.5 : Given 4 Celsius and 39.4 farenheit when converted and performed Addition should return Result.
+        /// TC-8.5 : Given 4 Celsius and 39.4 fahrenheit when converted and performed Addition should return Result.
         /// </summary>
         [Test]
         public void Given4CelsiusAnd39Point4_WhenConvertedAndCalculated_ShouldReturnEqual()
         {
-            double firstValue = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 4.0);
-            double secondValue = this.temperature.ConvertWeigths(Temperature.Unit.Fahrenheit, 39.2);
-            double result = length.CalculateLength(firstValue, secondValue);
+            double firstValue = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 4.0);
+            double secondValue = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 39.2);
+            double result = this.length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(78.4, result);
         }
 
         /// <summary>
-        /// TC-8.6 : Given 0 CelsiusToFerenheit and 0 CelsiusToFerenheit when Converted and compared should return Equal.
+        /// TC-8.6 : Given 0 CelsiusToFahrenheit and 0 CelsiusToFahrenheit when Converted and compared should return Equal.
         /// </summary>
         [Test]
         public void Given1CelsiusToFerenheitsAnd1CelsiusToFerenheit_WhenCompared_ShouldReturnEqual()
         {
-            double celsius = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 1.0);
-            double fahrenheit = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 1.0);
+            double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 1.0);
+            double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 1.0);
             Assert.AreEqual(celsius, fahrenheit);
         }
     }

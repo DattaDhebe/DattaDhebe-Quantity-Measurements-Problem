@@ -46,7 +46,7 @@ namespace Quantity_Measurements
         /// <param name="unit">defines which unit used</param>
         /// <param name="temperature">defines which type of temperature</param>
         /// <returns>return calculated temperature</returns>
-        public double ConvertWeigths(Unit unit, double temperature)
+        public double ConvertTemperature(Unit unit, double temperature)
         {
             try
             {
