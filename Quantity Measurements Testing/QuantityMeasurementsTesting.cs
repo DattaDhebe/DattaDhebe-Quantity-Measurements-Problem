@@ -26,6 +26,8 @@ namespace Quantity_Measurements_Testing
         /// </summary>
         private Weights weights = null;
 
+        private Temperature temperature = null;
+
         /// <summary>
         /// Method to Assign of Class Instance
         /// </summary>
@@ -34,6 +36,7 @@ namespace Quantity_Measurements_Testing
         {
             this.length = new Length();
             this.weights = new Weights();
+            this.temperature = new Temperature();
         }
 
         /// <summary>
@@ -638,12 +641,23 @@ namespace Quantity_Measurements_Testing
         /// TC-7.4 : Given 1 tonne and 1 tonne when converted and performed Addition should return Result.
         /// </summary>
         [Test]
-        public void Given1TonneAnd1TOnne_WhenConvertedAndCalculated_ShouldReturnEqual()
+        public void Given1TonneAnd1Tonne_WhenConvertedAndCalculated_ShouldReturnEqual()
         {
             double firstValue = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
             double secondValue = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
             double result = length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(2000.0, result);
+        }
+
+        /// <summary>
+        /// TC-8.1 : Given 1 Celsius and 33.8 Fahrenheit when compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given1CelsiusAnd33Point8Fahrenheit_WhenCompared_ShouldReturnEqual()
+        {
+            double celsius = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 1.0);
+            double fahrenheit = this.temperature.ConvertWeigths(Temperature.Unit.Fahrenheit, 33.8);
+            Assert.AreEqual(celsius, fahrenheit);
         }
     }
 }
