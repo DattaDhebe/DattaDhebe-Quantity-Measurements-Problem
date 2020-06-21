@@ -464,5 +464,18 @@ namespace Quantity_Measurements_Testing
             double result = length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(24.0, result);
         }
+
+        /// <summary>
+        /// TC-4.4 : Given 2 inch and 2.5 centimeter when Performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given2InchAnd2AndHalfCentimeter_WhenCalculated_ShouldReturnResult()
+        {
+            Length length = new Length();
+            double firstValue = this.inch.ConvertLength(Length.Unit.Inch, 2.0);
+            double secondValue = this.centimeter.ConvertLength(Length.Unit.CentimeterToInch, 2.5);
+            double result = length.CalculateLength(firstValue, secondValue);
+            Assert.AreEqual(3.0, result);
+        }
     }
 }
