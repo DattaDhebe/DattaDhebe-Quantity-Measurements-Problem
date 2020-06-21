@@ -1,9 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Temperature.cs" company="BridgeLabz Solution">
+//  Copyright (c) BridgeLabz Solution. All rights reserved.
+// </copyright>
+// <author>Datta Dhebe</author>
+//-----------------------------------------------------------------------
 
 namespace Quantity_Measurements
 {
+    using System;
+
+    /// <summary>
+    /// class for Temperature Entity
+    /// </summary>
     public class Temperature
     {
         /// <summary>
@@ -11,13 +19,33 @@ namespace Quantity_Measurements
         /// </summary>
         private const double CelsiusToFahrenheit = 33.8;
 
+        /// <summary>
+        /// enum to specify measurements
+        /// </summary>
         public enum Unit
         {
+            /// <summary>
+            /// Temperature for Fahrenheit
+            /// </summary>
             Fahrenheit,
+
+            /// <summary>
+            /// Temperature for Celsius
+            /// </summary>
             Celsius,
-            CelsiusToFahrenheit    
+
+            /// <summary>
+            /// Temperature for Celsius To Fahrenheit
+            /// </summary>
+            CelsiusToFahrenheit
         }
 
+        /// <summary>
+        /// Method to convert Weights
+        /// </summary>
+        /// <param name="unit">defines which unit used</param>
+        /// <param name="temperature">defines which type of temperature</param>
+        /// <returns>return calculated temperature</returns>
         public double ConvertWeigths(Unit unit, double temperature)
         {
             try

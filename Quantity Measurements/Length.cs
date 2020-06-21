@@ -50,7 +50,7 @@ namespace Quantity_Measurements
         }   
 
         /// <summary>
-        /// enum to specify if Inch of Feet
+        /// enum to specify measurements
         /// </summary>
         public enum Unit
         {
