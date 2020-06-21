@@ -704,5 +704,16 @@ namespace Quantity_Measurements_Testing
             double result = length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(78.4, result);
         }
+
+        /// <summary>
+        /// TC-8.6 : Given 0 CelsiusToFerenheit and 0 CelsiusToFerenheit when Converted and compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given1CelsiusToFerenheitsAnd1CelsiusToFerenheit_WhenCompared_ShouldReturnEqual()
+        {
+            double celsius = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 1.0);
+            double fahrenheit = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 1.0);
+            Assert.AreEqual(celsius, fahrenheit);
+        }
     }
 }
