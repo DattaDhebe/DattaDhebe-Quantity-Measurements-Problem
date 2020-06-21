@@ -33,6 +33,11 @@ namespace Quantity_Measurements
         private const double CentimeterToInch = 2.5;
 
         /// <summary>
+        /// pre-defined value for converting Gallon to Liter
+        /// </summary>
+        private const double GallonToLiter = 3.78;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Length" /> class.
         /// </summary>
         public Length() 
@@ -60,6 +65,16 @@ namespace Quantity_Measurements
             Yard,
 
             /// <summary>
+            /// Measurement for Gallon
+            /// </summary>
+            Gallon,
+
+            /// <summary>
+            /// Measurement for Liter
+            /// </summary>
+            Liter,
+
+            /// <summary>
             /// Measurement for Centimeter
             /// </summary>
             Centimeter,
@@ -77,7 +92,12 @@ namespace Quantity_Measurements
             /// <summary>
             /// enum Indicating conversion from Centimeter To Inch
             /// </summary>
-            CentimeterToInch
+            CentimeterToInch,
+
+            /// <summary>
+            /// enum Indicating conversion from Gallon To Liter
+            /// </summary>
+            GallonToLiter
         }
 
         /// <summary>
@@ -105,6 +125,11 @@ namespace Quantity_Measurements
                     return length / CentimeterToInch;
                 }
 
+                if (unit.Equals(Unit.GallonToLiter))
+                {
+                    return length * GallonToLiter;
+                }
+
                 return length;
             }
             catch (QuantityException e)
@@ -117,6 +142,12 @@ namespace Quantity_Measurements
             }
         }
 
+        /// <summary>
+        /// Method For Addition of Two Length
+        /// </summary>
+        /// <param name="firstValue">contains first length</param>
+        /// <param name="secondValue">contains second length</param>
+        /// <returns>return addition of Lengths</returns>
         public double CalculateLength(double firstValue, double secondValue)
         {
             return firstValue + secondValue;
