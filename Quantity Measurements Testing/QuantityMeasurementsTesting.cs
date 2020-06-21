@@ -414,7 +414,6 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given2InchAnd2Inch_WhenCalculated_ShouldReturnResult()
         {
-            Length length = new Length();
             double firstValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
             double secondValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
             double result = length.CalculateLength(firstValue, secondValue);
@@ -427,7 +426,6 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd2Inch_WhenCalculated_ShouldReturnResult()
         {
-            Length length = new Length();
             double firstValue = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
             double secondValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
             double result = length.CalculateLength(firstValue, secondValue);
@@ -440,7 +438,6 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd1Feet_WhenCalculated_ShouldReturnResult()
         {
-            Length length = new Length();
             double firstValue = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
             double secondValue = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
             double result = length.CalculateLength(firstValue, secondValue);
@@ -453,7 +450,6 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given2InchAnd2AndHalfCentimeter_WhenCalculated_ShouldReturnResult()
         {
-            Length length = new Length();
             double firstValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
             double secondValue = this.length.ConvertLength(Length.Unit.CentimeterToInch, 2.5);
             double result = length.CalculateLength(firstValue, secondValue);
@@ -466,7 +462,6 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1yardAnd1Yard_WhenCalculated_ShouldReturnResult()
         {
-            Length length = new Length();
             double firstValue = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
             double secondValue = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
             double result = length.CalculateLength(firstValue, secondValue);
@@ -537,6 +532,18 @@ namespace Quantity_Measurements_Testing
             double gallon1 = this.length.ConvertLength(Length.Unit.Gallon, 1.0);
             double gallon2 = this.length.ConvertLength(Length.Unit.Gallon, 1.0);
             Assert.AreEqual(gallon1, gallon2);
+        }
+
+        /// <summary>
+        /// TC-6.1 : Given 1 gallon and 3.78 liter when Performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given1GallonAnd3Point78_WhenCalculated_ShouldReturnResult()
+        {
+            double firstValue = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
+            double secondValue = this.length.ConvertLength(Length.Unit.Liter, 3.78);
+            double result = length.CalculateLength(firstValue, secondValue);
+            Assert.AreEqual(7.56, result);
         }
 
     }
