@@ -438,5 +438,18 @@ namespace Quantity_Measurements_Testing
             double result = length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(4.0, result);
         }
+
+        /// <summary>
+        /// TC-4.2 : Given 1 feet and 2 inch when Performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd2Inch_WhenCalculated_ShouldReturnResult()
+        {
+            Length length = new Length();
+            double firstValue = this.feet.ConvertLength(Length.Unit.FeetToInch, 1.0);
+            double secondValue = this.inch.ConvertLength(Length.Unit.Inch, 2.0);
+            double result = length.CalculateLength(firstValue, secondValue);
+            Assert.AreEqual(14.0, result);
+        }
     }
 }
