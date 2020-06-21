@@ -621,5 +621,29 @@ namespace Quantity_Measurements_Testing
             double grams = this.weights.ConvertWeigths(Weights.Unit.kilogram, 1000.0);
             Assert.AreEqual(kilogram, grams);
         }
+
+        /// <summary>
+        /// TC-7.3 : Given 1 tonne and 1000 mg when performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given1TonneAnd1000mg_WhenCalculated_ShouldReturnEqual()
+        {
+            double firstValue = this.weights.ConvertWeigths(Weights.Unit.Tonne, 1.0);
+            double secondValue = this.weights.ConvertWeigths(Weights.Unit.Grams, 1000.0);
+            double result = length.CalculateLength(firstValue, secondValue);
+            Assert.AreEqual(1001.0, result);
+        }
+
+        /// <summary>
+        /// TC-7.4 : Given 1 tonne and 1 tonne when converted and performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given1TonneAnd1TOnne_WhenConvertedAndCalculated_ShouldReturnEqual()
+        {
+            double firstValue = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
+            double secondValue = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
+            double result = length.CalculateLength(firstValue, secondValue);
+            Assert.AreEqual(2000.0, result);
+        }
     }
 }
