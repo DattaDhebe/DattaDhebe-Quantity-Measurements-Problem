@@ -546,5 +546,16 @@ namespace Quantity_Measurements_Testing
             Assert.AreEqual(7.56, result);
         }
 
+        /// <summary>
+        /// TC-6.2 : Given 1 liter and 1000 milliliter when Performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given1LiterAnd1000Milliliter_WhenCalculated_ShouldReturnResult()
+        {
+            double firstValue = this.length.ConvertLength(Length.Unit.Liter, 1.0);
+            double secondValue = this.length.ConvertLength(Length.Unit.MilliliterToLiter, 1000.0);
+            double result = length.CalculateLength(firstValue, secondValue);
+            Assert.AreEqual(2.0, result);
+        }
     }
 }

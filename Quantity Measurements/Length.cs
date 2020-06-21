@@ -112,7 +112,9 @@ namespace Quantity_Measurements
             /// <summary>
             /// enum Indicating conversion from Liter To Milliliter
             /// </summary>
-            LiterToMilliliter
+            LiterToMilliliter,
+            MilliliterToLiter
+
         }
 
         /// <summary>
@@ -148,6 +150,11 @@ namespace Quantity_Measurements
                 if (unit.Equals(Unit.LiterToMilliliter))
                 {
                     return length * LiterToMilliliter;
+                }
+
+                if (unit.Equals(Unit.MilliliterToLiter))
+                {
+                    return length / LiterToMilliliter;
                 }
 
                 return length;
