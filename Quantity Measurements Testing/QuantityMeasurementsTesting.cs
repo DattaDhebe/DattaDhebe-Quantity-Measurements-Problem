@@ -659,5 +659,16 @@ namespace Quantity_Measurements_Testing
             double fahrenheit = this.temperature.ConvertWeigths(Temperature.Unit.Fahrenheit, 33.8);
             Assert.AreEqual(celsius, fahrenheit);
         }
+
+        /// <summary>
+        /// TC-8.2 : Given 100 Celsius and 212 Fahrenheit when compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given100CelsiusAnd212Fahrenheit_WhenCompared_ShouldReturnEqual()
+        {
+            double celsius = this.temperature.ConvertWeigths(Temperature.Unit.CelsiusToFahrenheit, 100.0);
+            double fahrenheit = this.temperature.ConvertWeigths(Temperature.Unit.Fahrenheit, 212);
+            Assert.AreEqual(celsius, fahrenheit);
+        }
     }
 }

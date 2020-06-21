@@ -15,7 +15,7 @@ namespace Quantity_Measurements
         {
             Fahrenheit,
             Celsius,
-            CelsiusToFahrenheit     
+            CelsiusToFahrenheit    
         }
 
         public double ConvertWeigths(Unit unit, double temperature)
@@ -24,7 +24,7 @@ namespace Quantity_Measurements
             {
                 if (unit.Equals(Unit.CelsiusToFahrenheit))
                 {
-                    return temperature * CelsiusToFahrenheit;
+                    return CelsiusToFahrenheit + (temperature * 1.8) - 1.8;
                 }
 
                 return temperature;
