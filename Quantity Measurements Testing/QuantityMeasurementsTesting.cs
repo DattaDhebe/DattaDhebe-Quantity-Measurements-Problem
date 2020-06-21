@@ -538,7 +538,7 @@ namespace Quantity_Measurements_Testing
         /// TC-6.1 : Given 1 gallon and 3.78 liter when Performed Addition should return Result.
         /// </summary>
         [Test]
-        public void Given1GallonAnd3Point78_WhenCalculated_ShouldReturnResult()
+        public void Given1GallonAnd3Point78Liter_WhenCalculated_ShouldReturnResult()
         {
             double firstValue = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
             double secondValue = this.length.ConvertLength(Length.Unit.Liter, 3.78);
@@ -568,6 +568,18 @@ namespace Quantity_Measurements_Testing
             double secondValue = this.length.ConvertLength(Length.Unit.MilliliterToLiter, 1000.0);
             double result = length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(2.0, result);
+        }
+
+        /// <summary>
+        /// TC-6.4 : Given 1 gallon and 1 gallon when Performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given1GallonAnd1Gallon_WhenCalculated_ShouldReturnResult()
+        {
+            double firstValue = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
+            double secondValue = this.length.ConvertLength(Length.Unit.GallonToLiter, 1.0);
+            double result = length.CalculateLength(firstValue, secondValue);
+            Assert.AreEqual(7.56, result);
         }
     }
 }
