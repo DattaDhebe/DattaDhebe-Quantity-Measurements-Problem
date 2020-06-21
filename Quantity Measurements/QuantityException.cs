@@ -14,7 +14,7 @@ namespace Quantity_Measurements
     /// class extending Exception class properties
     /// </summary>
     [Serializable]
-    internal class QuantityException : Exception
+    public class QuantityException : Exception
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="QuantityException" /> class.

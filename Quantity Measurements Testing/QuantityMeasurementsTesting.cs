@@ -248,6 +248,25 @@ namespace Quantity_Measurements_Testing
             Assert.AreEqual(inch, feet);
         }
 
+
+        /// <summary>
+        /// Given first Feet Object and second Feet Object when checked should return True.
+        /// </summary>
+        [Test]
+        public void GivenTwoObjectHaveSameReference_WhenCheckedReference_ShouldReturnException()
+        {
+            try
+            {
+                Length length1 = new Length();
+                Weights weight1 = new Weights();
+                bool check = object.ReferenceEquals(length1, weight1);
+            }
+            catch (QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidLength, e.Message);
+            }
+        }
+
         /// <summary>
         /// TC-2.1 : Given 1 Yard and 1 Yard when Compared should return Equal.
         /// </summary>
@@ -424,6 +443,22 @@ namespace Quantity_Measurements_Testing
             double feet = this.length.ConvertLength(Length.Unit.Feet, 1.0);
             double centimeter = this.length.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
             Assert.AreNotEqual(feet, centimeter);
+        }
+
+        /// <summary>
+        /// Given 2 Inch and 5 Centimeter when Compared should return Exception.
+        /// </summary>
+        [Test]
+        public void Given2InchAnd5CentiMeter_WhenCompared_ShouldReturnException()
+        {
+            try
+            {
+                double centimeter = this.length.ConvertLength(Length.Unit.CentimeterToInch, 5.0);
+            }
+            catch(QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidLength, e.Message);
+            }
         }
 
         /// <summary>
@@ -724,5 +759,22 @@ namespace Quantity_Measurements_Testing
             double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 1.0);
             Assert.AreEqual(celsius, fahrenheit);
         }
+
+        /// <summary>
+        /// Given - 0 CelsiusToFahrenheit and 1 CelsiusToFahrenheit when compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given1CelsiusToFerenheitsAnd1CelsiusToFerenheit_WhenCompared_ShouldReturnException()
+        {
+            try
+            {
+                object celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, -0);
+                double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 1.0);              
+            }
+            catch(QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidLength, e.Message);
+            }
+        }       
     }
 }
