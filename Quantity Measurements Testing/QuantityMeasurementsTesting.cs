@@ -477,5 +477,18 @@ namespace Quantity_Measurements_Testing
             double result = length.CalculateLength(firstValue, secondValue);
             Assert.AreEqual(3.0, result);
         }
+
+        /// <summary>
+        /// TC-4.5 : Given 1 yard and 1 yard when Performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given1yardAnd1Yard_WhenCalculated_ShouldReturnResult()
+        {
+            Length length = new Length();
+            double firstValue = this.yard.ConvertLength(Length.Unit.YardToInch, 1.0);
+            double secondValue = this.yard.ConvertLength(Length.Unit.YardToInch, 1.0);
+            double result = length.CalculateLength(firstValue, secondValue);
+            Assert.AreEqual(72.0, result);
+        }
     }
 }
