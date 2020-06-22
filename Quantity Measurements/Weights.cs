@@ -15,17 +15,7 @@ namespace Quantity_Measurements
     /// class for weights
     /// </summary>
     public class Weights
-    {
-        /// <summary>
-        /// pre-defined value for converting Kilogram to Grams
-        /// </summary>
-        private const double KilogramToGrams = 1000;
-
-        /// <summary>
-        /// pre-defined value for converting Tone to Kilogram
-        /// </summary>
-        private const double TonneToKilograms = 1000;
-        
+    { 
         /// <summary>
         /// to specify conversion type
         /// </summary>
@@ -95,14 +85,9 @@ namespace Quantity_Measurements
         {
             try
             {
-                if (unit.Equals(Unit.KilogramToGrams))
+                if (unit.Equals(Unit.KilogramToGrams) || unit.Equals(Unit.TonneToKilograms))
                 {
-                    return weights * KilogramToGrams;
-                }
-
-                if (unit.Equals(Unit.TonneToKilograms))
-                {
-                    return weights * TonneToKilograms;
+                    return weights * 1000;
                 }
 
                 return weights;
