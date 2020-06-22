@@ -39,9 +39,9 @@ namespace Quantity_Measurements
         public enum ExceptionType
         {
             /// <summary>
-            /// for Invalid Length
+            /// for Invalid Data
             /// </summary>
-            InvalidLength
+            InvalidData
         }
 
         /// <summary>

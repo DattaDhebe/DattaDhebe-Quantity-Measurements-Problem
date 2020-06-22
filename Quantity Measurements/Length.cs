@@ -16,13 +16,34 @@ namespace Quantity_Measurements
     /// Class for Feet Entity
     /// </summary>
     public class Length
-    {     
+    {
+        /// <summary>
+        /// to specify conversion type
+        /// </summary>
+        private Unit unit;
+
+        /// <summary>
+        /// for giving value
+        /// </summary>
+        private string value;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Length" /> class.
         /// </summary>
         public Length() 
         { 
-        }   
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Length" /> class.
+        /// </summary>
+        /// <param name="unit">unit for performing Operation</param>
+        /// <param name="value">value for conversion</param>
+        public Length(Unit unit, string value)
+        {
+            this.unit = unit;
+            this.value = value;
+        }
 
         /// <summary>
         /// enum to specify measurements
@@ -94,11 +115,11 @@ namespace Quantity_Measurements
             }
             catch (QuantityException e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidLength, e.Message);
+                throw new QuantityException(QuantityException.ExceptionType.InvalidData, e.Message);
             }
             catch (Exception e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidLength, e.Message);
+                throw e;
             }
         }
 

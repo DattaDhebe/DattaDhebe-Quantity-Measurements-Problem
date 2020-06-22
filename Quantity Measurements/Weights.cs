@@ -25,6 +25,34 @@ namespace Quantity_Measurements
         /// pre-defined value for converting Tone to Kilogram
         /// </summary>
         private const double TonneToKilograms = 1000;
+        
+        /// <summary>
+        /// to specify conversion type
+        /// </summary>
+        private Unit unit;
+
+        /// <summary>
+        /// for giving value
+        /// </summary>
+        private string value;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Weights" /> class.
+        /// </summary>
+        public Weights()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Weights" /> class.
+        /// </summary>
+        /// <param name="unit">to specify conversion</param>
+        /// <param name="value">for giving value</param>
+        public Weights(Unit unit, string value)
+        {
+            this.unit = unit;
+            this.value = value;
+        }
 
         /// <summary>
         /// enum to specify measurements
@@ -81,11 +109,11 @@ namespace Quantity_Measurements
             }
             catch (QuantityException e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidLength, e.Message);
+                throw new QuantityException(QuantityException.ExceptionType.InvalidData, e.Message);
             }
             catch (Exception e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidLength, e.Message);
+                throw e;
             }
         }
     }

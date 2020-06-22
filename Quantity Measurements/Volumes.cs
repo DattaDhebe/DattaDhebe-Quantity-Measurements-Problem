@@ -17,6 +17,34 @@ namespace Quantity_Measurements
     public class Volumes
     {
         /// <summary>
+        /// to specify conversion type
+        /// </summary>
+        private Unit unit;
+
+        /// <summary>
+        /// for giving value
+        /// </summary>
+        private string value;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Volumes" /> class.
+        /// </summary>
+        public Volumes()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Volumes" /> class.
+        /// </summary>
+        /// <param name="unit">to specify conversion</param>
+        /// <param name="value">for giving value</param>
+        public Volumes(Unit unit, string value)
+        {
+            this.unit = unit;
+            this.value = value;
+        }
+
+        /// <summary>
         /// enum to specify measurements
         /// </summary>
         public enum Unit
@@ -81,11 +109,11 @@ namespace Quantity_Measurements
             }
             catch (QuantityException e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidLength, e.Message);
+                throw new QuantityException(QuantityException.ExceptionType.InvalidData, e.Message);
             }
             catch (Exception e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidLength, e.Message);
+                throw e;
             }
         }
     }
