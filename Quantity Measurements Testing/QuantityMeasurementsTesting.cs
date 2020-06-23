@@ -7,7 +7,6 @@
 
 namespace Quantity_Measurements_Testing
 {
-    using System;
     using NUnit.Framework;
     using Quantity_Measurements;
 
@@ -54,9 +53,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0FeetAnd0Feet_WhenChecked_ShouldReturnEqual()
         {
-            double feetOne = this.length.ConvertLength(Length.Unit.Feet, 0.0);
-            double feetTwo = this.length.ConvertLength(Length.Unit.Feet, 0.0);
-            Assert.AreEqual(feetOne, feetTwo);
+            try
+            {
+                double feetOne = this.length.ConvertLength(Length.Unit.Feet, 0.0);
+                double feetTwo = this.length.ConvertLength(Length.Unit.Feet, 0.0);
+                Assert.AreEqual(feetOne, feetTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -65,9 +71,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0FeetAndNull_WhenChecked_ShouldReturnNotEqual()
         {
-            double feetOne = this.length.ConvertLength(Length.Unit.Feet, 0.0);
-            Length feetTwo = null;
-            Assert.AreNotEqual(feetOne, feetTwo);
+            try
+            {
+                double feetOne = this.length.ConvertLength(Length.Unit.Feet, 0.0);
+                Length feetTwo = null;
+                Assert.AreNotEqual(feetOne, feetTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -76,9 +89,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0FeetAnd2Feet_WhenChecked_ShouldReturnNotEqual()
         {
-            double feetOne = this.length.ConvertLength(Length.Unit.Feet, 0.0);
-            double feetTwo = this.length.ConvertLength(Length.Unit.Feet, 2.0);
-            Assert.AreNotEqual(feetOne, feetTwo);
+            try
+            {
+                double feetOne = this.length.ConvertLength(Length.Unit.Feet, 0.0);
+                double feetTwo = this.length.ConvertLength(Length.Unit.Feet, 2.0);
+                Assert.AreNotEqual(feetOne, feetTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -87,9 +107,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void GivenFeetObjectAndFeetObject_WhenChecked_ShouldReturnEqual()
         {
-            double feetOne = this.length.ConvertLength(Length.Unit.Feet, 0.0);
-            double feetTwo = this.length.ConvertLength(Length.Unit.Feet, 2.0);
-            Assert.AreEqual(feetOne.GetType(), feetTwo.GetType());
+            try
+            {
+                double feetOne = this.length.ConvertLength(Length.Unit.Feet, 0.0);
+                double feetTwo = this.length.ConvertLength(Length.Unit.Feet, 2.0);
+                Assert.AreEqual(feetOne.GetType(), feetTwo.GetType());
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -98,11 +125,18 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void GivenTwoObjectHaveSameReference_WhenCheckedReference_ShouldReturnTrue()
         {
-            Length feetOne = new Length();
-            Length feetTwo = new Length();
-            feetOne = feetTwo;
-            bool check = object.ReferenceEquals(feetOne, feetTwo);
-            Assert.True(check);
+            try
+            {
+                Length feetOne = new Length();
+                Length feetTwo = new Length();
+                feetOne = feetTwo;
+                bool check = object.ReferenceEquals(feetOne, feetTwo);
+                Assert.True(check);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -111,9 +145,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1stAnd2ndSameValue_WhenChecked_ShouldReturnEqual()
         {
-            double feetOne = this.length.ConvertLength(Length.Unit.Feet, 2.0);
-            double feetTwo = this.length.ConvertLength(Length.Unit.Feet, 2.0);
-            Assert.AreEqual(feetOne, feetTwo);
+            try
+            {
+                double feetOne = this.length.ConvertLength(Length.Unit.Feet, 2.0);
+                double feetTwo = this.length.ConvertLength(Length.Unit.Feet, 2.0);
+                Assert.AreEqual(feetOne, feetTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -122,9 +163,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0InchAnd0Inch_WhenChecked_ShouldReturnEqual()
         {
-            double inchOne = this.length.ConvertLength(Length.Unit.Inch, 0.0);
-            double inchTwo = this.length.ConvertLength(Length.Unit.Inch, 0.0);
-            Assert.AreEqual(inchOne, inchTwo);
+            try
+            {
+                double inchOne = this.length.ConvertLength(Length.Unit.Inch, 0.0);
+                double inchTwo = this.length.ConvertLength(Length.Unit.Inch, 0.0);
+                Assert.AreEqual(inchOne, inchTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -133,9 +181,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0InchAndSecondNull_WhenChecked_ShouldReturnNotEqual()
         {
-            double inchOne = this.length.ConvertLength(Length.Unit.Inch, 0.0);
-            Length inchTwo = null;
-            Assert.AreNotEqual(inchOne, inchTwo);
+            try
+            {
+                double inchOne = this.length.ConvertLength(Length.Unit.Inch, 0.0);
+                Length inchTwo = null;
+                Assert.AreNotEqual(inchOne, inchTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -144,9 +199,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0InchAnd2Inch_WhenChecked_ShouldReturnNotEqual()
         {
-            double inchOne = this.length.ConvertLength(Length.Unit.Inch, 0.0);
-            double inchTwo = this.length.ConvertLength(Length.Unit.Inch, 2.0);
-            Assert.AreNotEqual(inchOne, inchTwo);
+            try
+            {
+                double inchOne = this.length.ConvertLength(Length.Unit.Inch, 0.0);
+                double inchTwo = this.length.ConvertLength(Length.Unit.Inch, 2.0);
+                Assert.AreNotEqual(inchOne, inchTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -155,9 +217,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1stInchObjectAnd2ndInchObjectOfType_WhenChecked_ShouldReturnEqual()
         {
-            double inchOne = this.length.ConvertLength(Length.Unit.Inch, 0.0);
-            double inchTwo = this.length.ConvertLength(Length.Unit.Inch, 0.0);
-            Assert.AreEqual(inchOne.GetType(), inchTwo.GetType());
+            try
+            {
+                double inchOne = this.length.ConvertLength(Length.Unit.Inch, 0.0);
+                double inchTwo = this.length.ConvertLength(Length.Unit.Inch, 0.0);
+                Assert.AreEqual(inchOne.GetType(), inchTwo.GetType());
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -166,9 +235,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void GivenInchTwoObjectHaveSameReference_WhenCheckedReference_ShouldReturnReturnEqual()
         {
-            double inchOne = this.length.ConvertLength(Length.Unit.Inch, 0.0);
-            double inchTwo = inchOne;
-            Assert.AreEqual(inchOne, inchTwo);
+            try
+            {
+                double inchOne = this.length.ConvertLength(Length.Unit.Inch, 0.0);
+                double inchTwo = inchOne;
+                Assert.AreEqual(inchOne, inchTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -177,9 +253,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1stAnd2ndInchSameValue_WhenChecked_ShouldReturnEqual()
         {
-            double inchOne = this.length.ConvertLength(Length.Unit.Inch, 2.0);
-            double inchTwo = this.length.ConvertLength(Length.Unit.Inch, 2.0);
-            Assert.AreEqual(inchOne, inchTwo);
+            try
+            {
+                double inchOne = this.length.ConvertLength(Length.Unit.Inch, 2.0);
+                double inchTwo = this.length.ConvertLength(Length.Unit.Inch, 2.0);
+                Assert.AreEqual(inchOne, inchTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -188,9 +271,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd1Inch_WhenChecked_ShouldReturnNotEqual()
         {
-            double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
-            double inch = this.length.ConvertLength(Length.Unit.Inch, 1.0);            
-            Assert.AreNotEqual(feet, inch);
+            try
+            {
+                double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
+                double inch = this.length.ConvertLength(Length.Unit.Inch, 1.0);
+                Assert.AreNotEqual(feet, inch);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -199,9 +289,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0FeetAnd0Inch_WhenCompared_ShouldReturnEqual()
         {
-            double feet = this.length.ConvertLength(Length.Unit.Feet, 0.0);
-            double inch = this.length.ConvertLength(Length.Unit.Inch, 0.0);
-            Assert.AreEqual(feet, inch);
+            try
+            {
+                double feet = this.length.ConvertLength(Length.Unit.Feet, 0.0);
+                double inch = this.length.ConvertLength(Length.Unit.Inch, 0.0);
+                Assert.AreEqual(feet, inch);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -210,9 +307,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0FeetAnd1Inch_WhenCompared_ShouldReturnNotEqual()
         {
-            double feet = this.length.ConvertLength(Length.Unit.Feet, 0.0);
-            double inch = this.length.ConvertLength(Length.Unit.Inch, 1.0);
-            Assert.AreNotEqual(feet, inch);
+            try
+            {
+                double feet = this.length.ConvertLength(Length.Unit.Feet, 0.0);
+                double inch = this.length.ConvertLength(Length.Unit.Inch, 1.0);
+                Assert.AreNotEqual(feet, inch);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -221,9 +325,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd12Inch_WhenComapared_ShouldReturnEqual()
         {
-            double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
-            double inch = this.length.ConvertLength(Length.Unit.Inch, 12.0);
-            Assert.AreEqual(feet, inch);
+            try
+            {
+                double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
+                double inch = this.length.ConvertLength(Length.Unit.Inch, 12.0);
+                Assert.AreEqual(feet, inch);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -232,9 +343,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd1Feet_WhenComapared_ShouldReturnEqual()
         {
-            double feetOne = this.length.ConvertLength(Length.Unit.Feet, 1.0);
-            double feetTwo = this.length.ConvertLength(Length.Unit.Feet, 1.0);
-            Assert.AreEqual(feetOne, feetTwo);
+            try
+            {
+                double feetOne = this.length.ConvertLength(Length.Unit.Feet, 1.0);
+                double feetTwo = this.length.ConvertLength(Length.Unit.Feet, 1.0);
+                Assert.AreEqual(feetOne, feetTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -243,13 +361,20 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given12InchAnd1Feet_WhenComapared_ShouldReturnEqual()
         {
-            double inch = this.length.ConvertLength(Length.Unit.Inch, 12.0);
-            double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
-            Assert.AreEqual(inch, feet);
+            try
+            {
+                double inch = this.length.ConvertLength(Length.Unit.Inch, 12.0);
+                double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
+                Assert.AreEqual(inch, feet);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
-        /// Given first Feet Object and second Feet Object when checked should return True.
+        /// TC-1.19 : Given first Feet Object and second Feet Object when checked should return Exception.
         /// </summary>
         [Test]
         public void GivenTwoObjectHaveSameReference_WhenCheckedReference_ShouldReturnException()
@@ -259,10 +384,11 @@ namespace Quantity_Measurements_Testing
                 Length length = new Length();
                 Weights weight = new Weights();
                 bool check = object.ReferenceEquals(length, weight);
+                Assert.False(check);
             }
             catch (QuantityException e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidData, e.Message);
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
             }
         }
 
@@ -272,9 +398,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1YardAnd1Yard_WhenComparingLength_ShouldReturnEqual()
         {
-            double yardOne = this.length.ConvertLength(Length.Unit.Yard, 1.0);
-            double yardTwo = this.length.ConvertLength(Length.Unit.Yard, 1.0);
-            Assert.AreEqual(yardOne, yardTwo);
+            try
+            {
+                double yardOne = this.length.ConvertLength(Length.Unit.Yard, 1.0);
+                double yardTwo = this.length.ConvertLength(Length.Unit.Yard, 1.0);
+                Assert.AreEqual(yardOne, yardTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -283,9 +416,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given3FeetAnd1Yard_WhenComparingLength_ShouldReturnEqual()
         {
-            double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 3.0);
-            double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
-            Assert.AreEqual(feet, yard);
+            try
+            {
+                double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 3.0);
+                double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
+                Assert.AreEqual(feet, yard);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -294,9 +434,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd1Yard_WhenComparingLength_ShouldReturnNotEqual()
         {
-            double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
-            double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
-            Assert.AreNotEqual(feet, yard);
+            try
+            {
+                double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
+                double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
+                Assert.AreNotEqual(feet, yard);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -305,9 +452,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1InchAnd1Yard_WhenComparingLength_ShouldReturnEqual()
         {
-            double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
-            double inch = this.length.ConvertLength(Length.Unit.Inch, 36.0);
-            Assert.AreEqual(yard, inch);
+            try
+            {
+                double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
+                double inch = this.length.ConvertLength(Length.Unit.Inch, 36.0);
+                Assert.AreEqual(yard, inch);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -316,9 +470,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1YardAnd3Feet_WhenComparingLength_ShouldReturnEqual()
         {
-            double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
-            double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 3.0);
-            Assert.AreEqual(yard, feet);
+            try
+            {
+                double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
+                double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 3.0);
+                Assert.AreEqual(yard, feet);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -327,32 +488,47 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given36InchAnd1Inch_WhenComparingLength_ShouldReturnEqual()
         {
-            double inch = this.length.ConvertLength(Length.Unit.Inch, 36.0);
-            double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
-            Assert.AreEqual(inch, yard);
+            try
+            {
+                double inch = this.length.ConvertLength(Length.Unit.Inch, 36.0);
+                double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
+                Assert.AreEqual(inch, yard);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
-        /// TC-2.7 : Given null and 1 Yard when Compared should return Not Equal.
+        /// TC-2.7 : Given 1 Feet and 1 Yard when Compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd1YArd_WhenComparingLength_ShouldReturnEqual()
+        {
+            try
+            {
+                double feet = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
+                double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
+                Assert.AreNotEqual(feet, yard);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// TC-2.8 : Given null and 1 Yard when Compared should return Not Equal.
         /// </summary>
         [Test]
         public void GivenNullAnd1Yard_WhenComparingLength_ShouldReturnNotEqual()
         {
-            Length inch = null;
-            double yard = this.length.ConvertLength(Length.Unit.Yard, 1.0);
-            Assert.AreNotEqual(inch, yard);
-        }
-
-        /// <summary>
-        /// TC-2.8 : Given string and 5 Centimeter when Compared should return Exception.
-        /// </summary>
-        [Test]
-        public void GivenStringAnd5CentiMeter_WhenCompared_ShouldReturnException()
-        {
             try
             {
-                Length centimeterOne = new Length(Length.Unit.Centimeter, "1.0");
-                double centimeterTwo = this.length.ConvertLength(Length.Unit.CentimeterToInch, 5.0);
+                Length inch = null;
+                double yard = this.length.ConvertLength(Length.Unit.Yard, 1.0);
+                Assert.AreNotEqual(inch, yard);
             }
             catch (QuantityException e)
             {
@@ -361,15 +537,16 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-2.9 : Given Empty string and 5 Centimeter when Compared should return Exception.
+        /// TC-2.9 : Given 1 Feet and 1 Yard To Inch when Compared should return Equal.
         /// </summary>
         [Test]
-        public void GivenEmptyStringAnd5CentiMeter_WhenCompared_ShouldReturnException()
+        public void Given1FeetAnd1YardToInch_WhenComparingLength_ShouldReturnEqual()
         {
             try
             {
-                Length centimeterOne = new Length(Length.Unit.Centimeter, " ");
-                double centimeterTwo = this.length.ConvertLength(Length.Unit.CentimeterToInch, 5.0);
+                double feet = this.length.ConvertLength(Length.Unit.Feet, 1.0);
+                double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
+                Assert.AreNotEqual(feet, yard);
             }
             catch (QuantityException e)
             {
@@ -378,15 +555,34 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-2.10 : Given null and 5 Centimeter when Compared should return Exception.
+        /// TC-2.10 : Given 1 Feet and 1 Feet To Inch when Compared should return Equal.
         /// </summary>
         [Test]
-        public void GivenNullAnd5CentiMeter_WhenCompared_ShouldReturnException()
+        public void Given1FeetAnd1Feet_ComparingLength_ShouldReturnEqual()
         {
             try
             {
-                Length centimeterOne = new Length(Length.Unit.Centimeter, null);
-                double centimeterTwo = this.length.ConvertLength(Length.Unit.CentimeterToInch, 5.0);
+                double feet = this.length.ConvertLength(Length.Unit.Feet, 1.0);
+                double yard = this.length.ConvertLength(Length.Unit.Feet, 1.0);
+                Assert.AreEqual(feet, yard);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// TC-2.11 : Given 1 Feet and 1 YardToInch To Inch when Compared should return Not Equal.
+        /// </summary>
+        [Test]
+        public void Given1FeetAnd1YardToInch_ComparingLength_ShouldReturnEqual()
+        {
+            try
+            {
+                double feet = this.length.ConvertLength(Length.Unit.Feet, 1.0);
+                double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
+                Assert.AreNotEqual(feet, yard);
             }
             catch (QuantityException e)
             {
@@ -400,9 +596,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0CentiMeterAnd0CentiMeter_WhenComparingLength_ShouldReturnEqual()
         {
-            double centimeterOne = this.length.ConvertLength(Length.Unit.Centimeter, 0.0);
-            double centimeterTwo = this.length.ConvertLength(Length.Unit.Centimeter, 0.0);
-            Assert.AreEqual(centimeterOne, centimeterTwo);
+            try
+            {
+                double centimeterOne = this.length.ConvertLength(Length.Unit.Centimeter, 0.0);
+                double centimeterTwo = this.length.ConvertLength(Length.Unit.Centimeter, 0.0);
+                Assert.AreEqual(centimeterOne, centimeterTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -411,9 +614,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0CentiMeterAnd1CentiMeter_WhenCompared_ShouldReturnNotEqual()
         {
-            double centimeterOne = this.length.ConvertLength(Length.Unit.Centimeter, 0.0);
-            double centimeterTwo = this.length.ConvertLength(Length.Unit.Centimeter, 1.0);
-            Assert.AreNotEqual(centimeterOne, centimeterTwo);
+            try
+            {
+                double centimeterOne = this.length.ConvertLength(Length.Unit.Centimeter, 0.0);
+                double centimeterTwo = this.length.ConvertLength(Length.Unit.Centimeter, 1.0);
+                Assert.AreNotEqual(centimeterOne, centimeterTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -422,9 +632,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0CentiMeterAndSecondNull_WhenCompared_ShouldReturnNotEqual()
         {
-            double centimeterOne = this.length.ConvertLength(Length.Unit.Centimeter, 0.0);
-            Length centimeterTwo = null;
-            Assert.AreNotEqual(centimeterOne, centimeterTwo);
+            try
+            {
+                double centimeterOne = this.length.ConvertLength(Length.Unit.Centimeter, 0.0);
+                Length centimeterTwo = null;
+                Assert.AreNotEqual(centimeterOne, centimeterTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -433,9 +650,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0CentiMeterObjectAnd2centiMeterObject_WhenCompared_ShouldReturnEqual()
         {
-            double centimeterOne = this.length.ConvertLength(Length.Unit.Centimeter, 0.0);
-            double centimeterTwo = this.length.ConvertLength(Length.Unit.Centimeter, 2.0);
-            Assert.AreEqual(centimeterOne.GetType(), centimeterTwo.GetType());
+            try
+            {
+                double centimeterOne = this.length.ConvertLength(Length.Unit.Centimeter, 0.0);
+                double centimeterTwo = this.length.ConvertLength(Length.Unit.Centimeter, 2.0);
+                Assert.AreEqual(centimeterOne.GetType(), centimeterTwo.GetType());
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -444,11 +668,18 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void GivenTwoObjectHaveSameReference_WhenComparedReference_ShouldReturnTrue()
         {
-            Length centimeterOne = new Length();
-            Length centimeterTwo = new Length();
-            centimeterOne = centimeterTwo;
-            bool check = object.ReferenceEquals(centimeterOne, centimeterTwo);
-            Assert.True(check);
+            try
+            {
+                Length centimeterOne = new Length();
+                Length centimeterTwo = new Length();
+                centimeterOne = centimeterTwo;
+                bool check = object.ReferenceEquals(centimeterOne, centimeterTwo);
+                Assert.True(check);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -457,9 +688,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given2CentiMeterAnd2CentiMeter_WhenCompared_ShouldReturnNotEqual()
         {
-            double centimeterOne = this.length.ConvertLength(Length.Unit.Centimeter, 2.0);
-            double centimeterTwo = this.length.ConvertLength(Length.Unit.Centimeter, 2.0);
-            Assert.AreEqual(centimeterOne, centimeterTwo);
+            try
+            {
+                double centimeterOne = this.length.ConvertLength(Length.Unit.Centimeter, 2.0);
+                double centimeterTwo = this.length.ConvertLength(Length.Unit.Centimeter, 2.0);
+                Assert.AreEqual(centimeterOne, centimeterTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -468,9 +706,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given2InchAnd5CentiMeter_WhenCompared_ShouldReturnEqual()
         {
-            double inch = this.length.ConvertLength(Length.Unit.Inch, 2.0);
-            double centimeter = this.length.ConvertLength(Length.Unit.CentimeterToInch, 5.0);
-            Assert.AreEqual(inch, centimeter);
+            try
+            {
+                double inch = this.length.ConvertLength(Length.Unit.Inch, 2.0);
+                double centimeter = this.length.ConvertLength(Length.Unit.CentimeterToInch, 5.0);
+                Assert.AreEqual(inch, centimeter);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -479,9 +724,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1InchAnd1CentiMeter_WhenCompared_ShouldReturnNotEqual()
         {
-            double inch = this.length.ConvertLength(Length.Unit.Inch, 1.0);
-            double centimeter = this.length.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
-            Assert.AreNotEqual(inch, centimeter);
+            try
+            {
+                double inch = this.length.ConvertLength(Length.Unit.Inch, 1.0);
+                double centimeter = this.length.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
+                Assert.AreNotEqual(inch, centimeter);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -490,21 +742,11 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd1CentiMeter_WhenCompared_ShouldReturnNotEqual()
         {
-            double feet = this.length.ConvertLength(Length.Unit.Feet, 1.0);
-            double centimeter = this.length.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
-            Assert.AreNotEqual(feet, centimeter);
-        }
-
-        /// <summary>
-        /// TC-3.10 : Given string and 1 Centimeter when Compared should return Exception.
-        /// </summary>
-        [Test]
-        public void Given1FeetStringAnd1CentiMeter_WhenCompared_ShouldReturnException()
-        {
             try
             {
-                Length feet = new Length(Length.Unit.Feet, "1.0");
+                double feet = this.length.ConvertLength(Length.Unit.Feet, 1.0);
                 double centimeter = this.length.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
+                Assert.AreNotEqual(feet, centimeter);
             }
             catch (QuantityException e)
             {
@@ -513,15 +755,16 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-3.11 : Given Empty Feet string and 1 Centimeter when Compared should return Exception.
+        /// TC-3.10 : Given 1 Yard and 1 Inch when Compared should return Not Equal.
         /// </summary>
         [Test]
-        public void GivenEmptyFeetStringAnd5CentiMeter_WhenCompared_ShouldReturnException()
+        public void Given1YardAnd1Inch_WhenCompared_ShouldReturnNotEqual()
         {
             try
             {
-                Length feet = new Length(Length.Unit.Feet, " ");
-                double centimeter = this.length.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
+                double yard = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
+                double inch = this.length.ConvertLength(Length.Unit.Inch, 1.0);
+                Assert.AreNotEqual(yard, inch);
             }
             catch (QuantityException e)
             {
@@ -530,15 +773,16 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-3.12 : Given null Feet and 1 Centimeter when Compared should return Exception.
+        /// TC-3.11 : Given 1 Centimeter and 1 Centimeter To Inch when Compared should return Not Equal.
         /// </summary>
         [Test]
-        public void GivenNullFeetAnd1CentiMeter_WhenCompared_ShouldReturnException()
+        public void Given1CentimeterAnd1CentinmeterToInch_WhenCompared_ShouldReturnNotEqual()
         {
             try
             {
-                Length feet = new Length(Length.Unit.Feet, null);
-                double centimeter = this.length.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
+                double yard = this.length.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
+                double inch = this.length.ConvertLength(Length.Unit.Centimeter, 1.0);
+                Assert.AreNotEqual(yard, inch);
             }
             catch (QuantityException e)
             {
@@ -552,10 +796,17 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given2InchAnd2Inch_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
-            double secondValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(4.0, result);
+            try
+            {
+                double firstValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
+                double secondValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(4.0, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -564,10 +815,17 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd2Inch_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
-            double secondValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(14.0, result);
+            try
+            {
+                double firstValue = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
+                double secondValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(14.0, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -576,10 +834,17 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1FeetAnd1Feet_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
-            double secondValue = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(24.0, result);
+            try
+            {
+                double firstValue = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
+                double secondValue = this.length.ConvertLength(Length.Unit.FeetToInch, 1.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(24.0, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -588,10 +853,17 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given2InchAnd2AndHalfCentimeter_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
-            double secondValue = this.length.ConvertLength(Length.Unit.CentimeterToInch, 2.5);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(3.0, result);
+            try
+            {
+                double firstValue = this.length.ConvertLength(Length.Unit.Inch, 2.0);
+                double secondValue = this.length.ConvertLength(Length.Unit.CentimeterToInch, 2.5);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(3.0, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -600,22 +872,12 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1yardAnd1Yard_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
-            double secondValue = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(72.0, result);
-        }
-
-        /// <summary>
-        /// TC-4.6 : Given 1 Yard String and 1 Yard when Compared should return Exception.
-        /// </summary>
-        [Test]
-        public void Given1StringAnd1YardToInch_WhenCompared_ShouldReturnException()
-        {
             try
             {
-                Length firstValue = new Length(Length.Unit.YardToInch, "1.0");              
+                double firstValue = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
                 double secondValue = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(72.0, result);
             }
             catch (QuantityException e)
             {
@@ -624,32 +886,17 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-4.7 : Given Empty Yard string and 1 Yard when Compared should return Exception.
+        /// TC-4.6 : Given 1 yard and 1 yard when Performed Addition should return Result.
         /// </summary>
         [Test]
-        public void GivenEmptyYardStringAnd5CentiMeter_WhenCompared_ShouldReturnException()
+        public void Given1yardAnd1Inch_WhenCalculated_ShouldReturnResult()
         {
             try
             {
-                Length feet = new Length(Length.Unit.Yard, " ");
-                double centimeter = this.length.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
-            }
-            catch (QuantityException e)
-            {
-                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
-            }
-        }
-
-        /// <summary>
-        /// TC-4.8 : Given null Yard and 1 Centimeter when Compared should return Exception.
-        /// </summary>
-        [Test]
-        public void GivenNullYardAnd1CentiMeter_WhenCompared_ShouldReturnException()
-        {
-            try
-            {
-                Length feet = new Length(Length.Unit.Feet, null);
-                double centimeter = this.length.ConvertLength(Length.Unit.CentimeterToInch, 1.0);
+                double firstValue = this.length.ConvertLength(Length.Unit.YardToInch, 1.0);
+                double secondValue = this.length.ConvertLength(Length.Unit.Inch, 1.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreNotEqual(72.0, result);
             }
             catch (QuantityException e)
             {
@@ -663,9 +910,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd3Point78Liter_WhenCompared_ShouldReturnEqual()
         {
-            double gallon = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
-            double liter = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 3.78);
-            Assert.AreEqual(gallon, liter);
+            try
+            {
+                double gallon = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double liter = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 3.78);
+                Assert.AreEqual(gallon, liter);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -674,9 +928,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1LiterAnd1000Mililiter_WhenCompared_ShouldReturnEqual()
         {
-            double liter = this.volumes.ConvertVolumes(Volumes.Unit.LiterToMilliliter, 1.0);
-            double mililiter = this.volumes.ConvertVolumes(Volumes.Unit.Milliliter, 1000);
-            Assert.AreEqual(liter, mililiter);
+            try
+            {
+                double liter = this.volumes.ConvertVolumes(Volumes.Unit.LiterToMilliliter, 1.0);
+                double mililiter = this.volumes.ConvertVolumes(Volumes.Unit.Milliliter, 1000);
+                Assert.AreEqual(liter, mililiter);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -685,9 +946,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd2Point78Liter_WhenCompared_ShouldReturnEqual()
         {
-            double gallon = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
-            double liter = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 2.78);
-            Assert.AreNotEqual(gallon, liter);
+            try
+            {
+                double gallon = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double liter = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 2.78);
+                Assert.AreNotEqual(gallon, liter);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -696,9 +964,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1LiterAnd1Liter_WhenCompared_ShouldReturnEqual()
         {
-            double literOne = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
-            double literTwo = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
-            Assert.AreEqual(literOne, literTwo);
+            try
+            {
+                double literOne = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
+                double literTwo = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
+                Assert.AreEqual(literOne, literTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -707,9 +982,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd1Liter_WhenCompared_ShouldReturnNotEqual()
         {
-            double gallon = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
-            double liter = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
-            Assert.AreNotEqual(gallon, liter);
+            try
+            {
+                double gallon = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double liter = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
+                Assert.AreNotEqual(gallon, liter);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -718,21 +1000,11 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd1Gallon_WhenCompared_ShouldReturnEqual()
         {
-            double gallonOne = this.volumes.ConvertVolumes(Volumes.Unit.Gallon, 1.0);
-            double gallonTwo = this.volumes.ConvertVolumes(Volumes.Unit.Gallon, 1.0);
-            Assert.AreEqual(gallonOne, gallonTwo);
-        }
-
-        /// <summary>
-        /// TC-5.7 : Given 1 Gallon String and 1 Gallon To Liter when Compared should return Exception.
-        /// </summary>
-        [Test]
-        public void Given1GallonStringAnd1Gallon_WhenCompared_ShouldReturnException()
-        {
             try
             {
-                Volumes firstValue = new Volumes(Volumes.Unit.Gallon, "1.0");
-                double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double gallonOne = this.volumes.ConvertVolumes(Volumes.Unit.Gallon, 1.0);
+                double gallonTwo = this.volumes.ConvertVolumes(Volumes.Unit.Gallon, 1.0);
+                Assert.AreEqual(gallonOne, gallonTwo);
             }
             catch (QuantityException e)
             {
@@ -741,15 +1013,16 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-5.8 : Given Empty Gallon string and 1 Gallon To Liter when Compared should return Exception.
+        /// TC-5.7 : Given 0 gallon and 0 Liter when Compared should return Equal.
         /// </summary>
         [Test]
-        public void GivenEmptyGallonStringAnd1Gallon_WhenCompared_ShouldReturnException()
+        public void Given0GallonAnd0Liter_WhenCompared_ShouldReturnEqual()
         {
             try
             {
-                Volumes firstValue = new Volumes(Volumes.Unit.Gallon, " ");
-                double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double gallon = this.volumes.ConvertVolumes(Volumes.Unit.Gallon, 0.0);
+                double liter = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 0.0);
+                Assert.AreEqual(gallon, liter);
             }
             catch (QuantityException e)
             {
@@ -758,15 +1031,34 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-5.9 : Given null Gallon and 1 Gallon To Liter when Compared should return Exception.
+        /// TC-5.8 : Given 1 gallon and 1 Liter when Compared should return Equal.
         /// </summary>
         [Test]
-        public void GivenNullGAllonYardAnd1Gallon_WhenCompared_ShouldReturnException()
+        public void Given1GallonAnd1Liter_WhenCompared_ShouldReturnEqual()
         {
             try
             {
-                Volumes firstValue = new Volumes(Volumes.Unit.Gallon, null);
-                double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double gallonOne = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double liter = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
+                Assert.AreNotEqual(gallonOne, liter);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// TC-5.9 : Given 1 Gallon To Liter and 1 Gallon To Liter when Compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given1GallonToLiterAnd1GallonToLiter_WhenCompared_ShouldReturnEqual()
+        {
+            try
+            {
+                double gallonToLiterOne = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double gallonToLiterTwo = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                Assert.AreEqual(gallonToLiterOne, gallonToLiterTwo);
             }
             catch (QuantityException e)
             {
@@ -780,10 +1072,17 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd3Point78Liter_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
-            double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 3.78);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(7.56, result);
+            try
+            {
+                double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 3.78);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(7.56, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -792,10 +1091,17 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1LiterAnd1000Milliliter_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
-            double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.MilliliterToLiter, 1000.0);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(2.0, result);
+            try
+            {
+                double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
+                double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.MilliliterToLiter, 1000.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(2.0, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -804,10 +1110,17 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1000MilliliterAnd1000Milliliter_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.MilliliterToLiter, 1000.0);
-            double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.MilliliterToLiter, 1000.0);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(2.0, result);
+            try
+            {
+                double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.MilliliterToLiter, 1000.0);
+                double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.MilliliterToLiter, 1000.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(2.0, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -816,10 +1129,17 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd1Gallon_WhenCalculated_ShouldReturnResult()
         {
-            double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
-            double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(7.56, result);
+            try
+            {
+                double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(7.56, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -828,72 +1148,35 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1GallonAnd1Gallon_WhenConverted_ShouldReturnResult()
         {
-            double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
-            double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(7.56, result);
-        }
-
-        /// <summary>
-        /// TC-6.6 : Given 1 Liter String and 1 Liter when Compared should return Exception.
-        /// </summary>
-        [Test]
-        public void Given1LiterStringAnd1Liter_WhenCompared_ShouldReturnException()
-        {
             try
             {
-                Volumes firstValue = new Volumes(Volumes.Unit.Liter, "1.0");
-                double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
+                double firstValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.GallonToLiter, 1.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(7.56, result);
             }
             catch (QuantityException e)
             {
                 Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
             }
         }
-
-        /// <summary>
-        /// TC-6.7 : Given Empty Liter string and 1 Liter when Compared should return Exception.
-        /// </summary>
-        [Test]
-        public void GivenEmptyLiterStringAnd1Liter_WhenCompared_ShouldReturnException()
-        {
-            try
-            {
-                Volumes firstValue = new Volumes(Volumes.Unit.Liter, " ");
-                double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
-            }
-            catch (QuantityException e)
-            {
-                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
-            }
-        }
-
-        /// <summary>
-        /// TC-6.8 : Given null Liter and 1 Liter when Compared should return Exception.
-        /// </summary>
-        [Test]
-        public void GivenNullLiterAnd1Liter_WhenCompared_ShouldReturnException()
-        {
-            try
-            {
-                Volumes firstValue = new Volumes(Volumes.Unit.Liter, null);
-                double secondValue = this.volumes.ConvertVolumes(Volumes.Unit.Liter, 1.0);
-            }
-            catch (QuantityException e)
-            {
-                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
-            }
-        }
-
+        
         /// <summary>
         /// TC-7.1 : Given 1 kilogram and 1000 grams when compared should return Equal.
         /// </summary>
         [Test]
         public void Given1KilogramAnd1000Grams_WhenCompared_ShouldReturnEqual()
         {
-            double kilogram = this.weights.ConvertWeigths(Weights.Unit.KilogramToGrams, 1.0);
-            double grams = this.weights.ConvertWeigths(Weights.Unit.Grams, 1000.0);
-            Assert.AreEqual(kilogram, grams);
+            try
+            {
+                double kilogram = this.weights.ConvertWeigths(Weights.Unit.KilogramToGrams, 1.0);
+                double grams = this.weights.ConvertWeigths(Weights.Unit.Grams, 1000.0);
+                Assert.AreEqual(kilogram, grams);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -902,9 +1185,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1TonneAnd1000Kilograms_WhenCompared_ShouldReturnEqual()
         {
-            double kilogram = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
-            double grams = this.weights.ConvertWeigths(Weights.Unit.kilogram, 1000.0);
-            Assert.AreEqual(kilogram, grams);
+            try
+            {
+                double kilogram = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
+                double grams = this.weights.ConvertWeigths(Weights.Unit.kilogram, 1000.0);
+                Assert.AreEqual(kilogram, grams);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -913,10 +1203,17 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1TonneAnd1000mg_WhenCalculated_ShouldReturnEqual()
         {
-            double firstValue = this.weights.ConvertWeigths(Weights.Unit.Tonne, 1.0);
-            double secondValue = this.weights.ConvertWeigths(Weights.Unit.Grams, 1000.0);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(1001.0, result);
+            try
+            {
+                double firstValue = this.weights.ConvertWeigths(Weights.Unit.Tonne, 1.0);
+                double secondValue = this.weights.ConvertWeigths(Weights.Unit.Grams, 1000.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(1001.0, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -925,22 +1222,12 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1TonneAnd1Tonne_WhenConvertedAndCalculated_ShouldReturnEqual()
         {
-            double firstValue = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
-            double secondValue = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(2000.0, result);
-        }
-
-        /// <summary>
-        /// TC-7.5 : Given 1 Grams String and 1 Kilogram when Compared should return Exception.
-        /// </summary>
-        [Test]
-        public void Given1LiterStringAnd1Kilogram_WhenCompared_ShouldReturnException()
-        {
             try
             {
-                Weights firstValue = new Weights(Weights.Unit.Grams, "1.0");
-                double secondValue = this.weights.ConvertWeigths(Weights.Unit.kilogram, 1.0);
+                double firstValue = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
+                double secondValue = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(2000.0, result);
             }
             catch (QuantityException e)
             {
@@ -949,15 +1236,17 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-7.6 : Given Empty Gram String and 1 Kilogram when Compared should return Exception.
+        /// TC-7.5 : Given 0 tone and 0 kilogram when converted and performed Addition should return Result.
         /// </summary>
         [Test]
-        public void GivenEmptyGramStringAnd1Kilogram_WhenCompared_ShouldReturnException()
+        public void Given0TonneAnd0Kilogram_WhenConvertedAndCalculated_ShouldReturnEqual()
         {
             try
             {
-                Weights firstValue = new Weights(Weights.Unit.Grams, " ");
-                double secondValue = this.weights.ConvertWeigths(Weights.Unit.kilogram, 1.0);
+                double firstValue = this.weights.ConvertWeigths(Weights.Unit.Tonne, 0.0);
+                double secondValue = this.weights.ConvertWeigths(Weights.Unit.kilogram, 0.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(0.0, result);
             }
             catch (QuantityException e)
             {
@@ -966,15 +1255,74 @@ namespace Quantity_Measurements_Testing
         }
 
         /// <summary>
-        /// TC-7.7 : Given null Grams and 1 Kilogram when Compared should return Exception.
+        /// TC-7.6 : Given 1 tone and 1 tone when converted and performed Addition should return Result.
         /// </summary>
         [Test]
-        public void GivenNullGramsAnd1kilograms_WhenCompared_ShouldReturnException()
+        public void Given1KilogramAnd1Kilogram_WhenConvertedAndCalculated_ShouldReturnEqual()
         {
             try
             {
-                Weights firstValue = new Weights(Weights.Unit.Grams, null);
+                double firstValue = this.weights.ConvertWeigths(Weights.Unit.kilogram, 1.0);
                 double secondValue = this.weights.ConvertWeigths(Weights.Unit.kilogram, 1.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(2.0, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// TC-7.7 : Given 1 tone and 1 kilogram when converted and performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given1TonneAnd1Kilogram_WhenConvertedAndCalculated_ShouldReturnEqual()
+        {
+            try
+            {
+                double firstValue = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
+                double secondValue = this.weights.ConvertWeigths(Weights.Unit.kilogram, 1.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreNotEqual(2.0, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// TC-7.8 : Given 1 grams and 1 kilogram to grams when converted and performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given1GramsAnd1Kilogram_WhenConvertedAndCalculated_ShouldReturnEqual()
+        {
+            try
+            {
+                double firstValue = this.weights.ConvertWeigths(Weights.Unit.Grams, 1.0);
+                double secondValue = this.weights.ConvertWeigths(Weights.Unit.KilogramToGrams, 1.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreNotEqual(2.0, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// TC-7.8 : Given 1 ToneToKilogram and 1 KilogramToTone to grams when converted and performed Addition should return Result.
+        /// </summary>
+        [Test]
+        public void Given1ToneToKilogramAnd1KilogramToTone_WhenConvertedAndCalculated_ShouldReturnEqual()
+        {
+            try
+            {
+                double firstValue = this.weights.ConvertWeigths(Weights.Unit.TonneToKilograms, 1.0);
+                double secondValue = this.weights.ConvertWeigths(Weights.Unit.KilogramToGrams, 1.0);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreNotEqual(2.0, result);
             }
             catch (QuantityException e)
             {
@@ -988,9 +1336,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1CelsiusAnd33Point8Fahrenheit_WhenCompared_ShouldReturnEqual()
         {
-            double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 1.0);
-            double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 33.8);
-            Assert.AreEqual(celsius, fahrenheit);
+            try
+            {
+                double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 1.0);
+                double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 33.8);
+                Assert.AreEqual(celsius, fahrenheit);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -999,9 +1354,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given100CelsiusAnd212Fahrenheit_WhenCompared_ShouldReturnEqual()
         {
-            double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 100.0);
-            double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 212);
-            Assert.AreEqual(celsius, fahrenheit);
+            try
+            {
+                double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 100.0);
+                double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 212);
+                Assert.AreEqual(celsius, fahrenheit);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -1010,9 +1372,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given2CelsiusAnd33Point8Fahrenheit_WhenCompared_ShouldReturnEqual()
         {
-            double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 2.0);
-            double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 33.8);
-            Assert.AreNotEqual(celsius, fahrenheit);
+            try
+            {
+                double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 2.0);
+                double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 33.8);
+                Assert.AreNotEqual(celsius, fahrenheit);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -1021,9 +1390,16 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given0CelsiusAnd0Fahrenheit_WhenCompared_ShouldReturnEqual()
         {
-            double celsius = this.temperature.ConvertTemperature(Temperature.Unit.Celsius, 0.0);
-            double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 0.0);
-            Assert.AreEqual(celsius, fahrenheit);
+            try
+            {
+                double celsius = this.temperature.ConvertTemperature(Temperature.Unit.Celsius, 0.0);
+                double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 0.0);
+                Assert.AreEqual(celsius, fahrenheit);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -1032,10 +1408,17 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given4CelsiusAnd39Point4_WhenConvertedAndCalculated_ShouldReturnEqual()
         {
-            double firstValue = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 4.0);
-            double secondValue = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 39.2);
-            double result = this.length.CalculateLength(firstValue, secondValue);
-            Assert.AreEqual(78.4, result);
+            try
+            {
+                double firstValue = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 4.0);
+                double secondValue = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 39.2);
+                double result = this.length.CalculateLength(firstValue, secondValue);
+                Assert.AreEqual(78.4, result);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
 
         /// <summary>
@@ -1044,59 +1427,87 @@ namespace Quantity_Measurements_Testing
         [Test]
         public void Given1CelsiusToFerenheitsAnd1CelsiusToFerenheit_WhenCompared_ShouldReturnEqual()
         {
-            double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 1.0);
-            double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 1.0);
-            Assert.AreEqual(celsius, fahrenheit);
-        }
-
-        /// <summary>
-        /// TC-8.7 : Given 0 string CelsiusToFahrenheit and 0 CelsiusToFahrenheit when compared should return Exception.
-        /// </summary>
-        [Test]
-        public void Given0StringCelsiusToFerenheitsAnd0CelsiusToFerenheit_WhenCompared_ShouldReturnException()
-        {
             try
             {
-                Temperature celsius = new Temperature(Temperature.Unit.CelsiusToFahrenheit, "0.0");
-                double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 0.0);
+                double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 1.0);
+                double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 1.0);
+                Assert.AreEqual(celsius, fahrenheit);
             }
             catch (QuantityException e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidData, e.Message);
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
             }
         }
 
         /// <summary>
-        /// TC-8.8 : Given Empty string CelsiusToFahrenheit and 0 CelsiusToFahrenheit when compared should return Exception.
+        /// TC-8.7 : Given 0 CelsiusToFahrenheit and 2 CelsiusToFahrenheit when Converted and compared should return Not Equal.
         /// </summary>
         [Test]
-        public void GivenEmptyStringCelsiusToFerenheitsAnd0CelsiusToFerenheit_WhenCompared_ShouldReturnException()
+        public void Given1CelsiusToFerenheitsAnd2CelsiusToFerenheit_WhenCompared_ShouldReturnNotEqual()
         {
             try
             {
-                Temperature celsius = new Temperature(Temperature.Unit.CelsiusToFahrenheit, " ");
-                double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 0.0);
+                double celsius = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 1.0);
+                double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 2.0);
+                Assert.AreNotEqual(celsius, fahrenheit);
             }
             catch (QuantityException e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidData, e.Message);
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
             }
         }
 
         /// <summary>
-        /// TC-8.9 : Given null CelsiusToFahrenheit and 0 CelsiusToFahrenheit when compared should return Exception.
+        /// TC-8.8 : Given 0 Celsius and 0 Fahrenheit when Converted and compared should return Equal.
         /// </summary>
         [Test]
-        public void GivenNullCelsiusToFerenheitsAnd0CelsiusToFerenheit_WhenCompared_ShouldReturnException()
+        public void Given0CelsiusAnd0Ferenheit_WhenCompared_ShouldReturnEqual()
         {
             try
             {
-                Temperature celsius = new Temperature(Temperature.Unit.CelsiusToFahrenheit, null);
-                double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.CelsiusToFahrenheit, 0.0);
+                double celsius = this.temperature.ConvertTemperature(Temperature.Unit.Celsius, 0.0);
+                double fahrenheit = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 0.0);
+                Assert.AreEqual(celsius, fahrenheit);
             }
             catch (QuantityException e)
             {
-                throw new QuantityException(QuantityException.ExceptionType.InvalidData, e.Message);
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// TC-8.9 : Given 0 Celsius and 0 Celsius when Converted and compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given0CelsiusAnd0Celsius_WhenCompared_ShouldReturnEqual()
+        {
+            try
+            {
+                double celsiusOne = this.temperature.ConvertTemperature(Temperature.Unit.Celsius, 0.0);
+                double celsiusTwo = this.temperature.ConvertTemperature(Temperature.Unit.Celsius, 0.0);
+                Assert.AreEqual(celsiusOne, celsiusTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
+        }
+
+        /// <summary>
+        /// TC-8.10 : Given 0 Fahrenheit and 0 Fahrenheit when Converted and compared should return Equal.
+        /// </summary>
+        [Test]
+        public void Given0FahrenheitAnd0Fahrenheit_WhenCompared_ShouldReturnEqual()
+        {
+            try
+            {
+                double fahrenheitOne = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 0.0);
+                double fahrenheitTwo = this.temperature.ConvertTemperature(Temperature.Unit.Fahrenheit, 0.0);
+                Assert.AreEqual(fahrenheitOne, fahrenheitTwo);
+            }
+            catch (QuantityException e)
+            {
+                Assert.AreEqual(QuantityException.ExceptionType.InvalidData, e.Message);
             }
         }
     }

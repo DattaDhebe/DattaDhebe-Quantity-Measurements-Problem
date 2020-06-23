@@ -8,42 +8,19 @@
 namespace Quantity_Measurements
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
 
     /// <summary>
     /// class for weights
     /// </summary>
     public class Weights
-    { 
-        /// <summary>
-        /// to specify conversion type
-        /// </summary>
-        private Unit unit;
-
-        /// <summary>
-        /// for giving value
-        /// </summary>
-        private string value;
-
+    {        
         /// <summary>
         /// Initializes a new instance of the <see cref="Weights" /> class.
         /// </summary>
         public Weights()
         {
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Weights" /> class.
-        /// </summary>
-        /// <param name="unit">to specify conversion</param>
-        /// <param name="value">for giving value</param>
-        public Weights(Unit unit, string value)
-        {
-            this.unit = unit;
-            this.value = value;
-        }
-
+       
         /// <summary>
         /// enum to specify measurements
         /// </summary>

@@ -8,9 +8,6 @@
 namespace Quantity_Measurements
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Text;
 
     /// <summary>
     /// Class for Feet Entity
@@ -18,31 +15,10 @@ namespace Quantity_Measurements
     public class Length
     {
         /// <summary>
-        /// to specify conversion type
-        /// </summary>
-        private Unit unit;
-
-        /// <summary>
-        /// for giving value
-        /// </summary>
-        private string value;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Length" /> class.
         /// </summary>
         public Length() 
         { 
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Length" /> class.
-        /// </summary>
-        /// <param name="unit">unit for performing Operation</param>
-        /// <param name="value">value for conversion</param>
-        public Length(Unit unit, string value)
-        {
-            this.unit = unit;
-            this.value = value;
         }
 
         /// <summary>
@@ -131,7 +107,15 @@ namespace Quantity_Measurements
         /// <returns>return addition of Lengths</returns>
         public double CalculateLength(double firstValue, double secondValue)
         {
-            return firstValue + secondValue;
+            try
+            {
+                // Addition of two values
+                return firstValue + secondValue;
+            }
+            catch (QuantityException e)
+            {
+                throw new QuantityException(QuantityException.ExceptionType.InvalidData, e.Message);
+            }
         }
     }
 }

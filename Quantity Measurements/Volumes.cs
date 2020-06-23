@@ -8,8 +8,6 @@
 namespace Quantity_Measurements
 {
     using System;
-    using System.Collections.Generic;
-    using System.Text;
 
     /// <summary>
     /// class for Volume
@@ -17,33 +15,12 @@ namespace Quantity_Measurements
     public class Volumes
     {
         /// <summary>
-        /// to specify conversion type
-        /// </summary>
-        private Unit unit;
-
-        /// <summary>
-        /// for giving value
-        /// </summary>
-        private string value;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Volumes" /> class.
         /// </summary>
         public Volumes()
         {
         }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Volumes" /> class.
-        /// </summary>
-        /// <param name="unit">to specify conversion</param>
-        /// <param name="value">for giving value</param>
-        public Volumes(Unit unit, string value)
-        {
-            this.unit = unit;
-            this.value = value;
-        }
-
+      
         /// <summary>
         /// enum to specify measurements
         /// </summary>

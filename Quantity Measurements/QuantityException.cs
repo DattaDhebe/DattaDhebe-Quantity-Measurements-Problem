@@ -8,7 +8,6 @@
 namespace Quantity_Measurements
 {
     using System;
-    using System.Runtime.Serialization;
 
     /// <summary>
     /// class extending Exception class properties
